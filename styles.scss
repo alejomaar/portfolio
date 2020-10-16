@@ -1,6 +1,21 @@
 $IndianW: #F8E6D0;
 $IndianB: #EAD0B4;
+$BorderIndian: #8C6F4D;
 $Cinder: #15151F;
+
+$Serif:  "Domine","serif";
+$Sans:  "Source Sans Pro", "sans-serif";
+
+h1,h2{
+    font-size: 1rem;
+    font-family: $Serif;
+}
+
+p{
+    font-family: $Sans;
+    font-size: 18px;
+    //font-weight: 300;
+}
 //General config
 *{
     box-sizing: border-box;
@@ -42,18 +57,18 @@ h1{
 
 
 h2{
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 //class
 .welcome
 {
     display: flex;
     width: 100%;
-    justify-content: space-around;
+    //justify-content: space-around;
 
     .blockscience,.blockart
     {
-        flex: 1 0 0;
+        width: 50%;
         height: 100%;
         padding-top: 3rem;
         padding-bottom: 3rem;
@@ -61,19 +76,36 @@ h2{
         
     }
 
+    @mixin Bannertitle($Color) {
+        color: $Color;
+        font-size: 80px;
+        font-family: $Serif;
+    }
+
+    @mixin Bannersubtitle($Color) {
+        color: $Color;
+        font-size: 25px;
+        font-family: $Sans;
+        font-weight: normal;
+    }
+    
+
     .blockscience{
         background-color: $IndianB;
         h1{
-          color: $Cinder;
+          @include Bannertitle($Cinder)
+        }
+        h2{
+            @include Bannersubtitle(black)
         }
     }
     .blockart{
         background-color: $Cinder;
         h1{
-          color: $IndianB;
+            @include Bannertitle($IndianW)
         }
         h2{
-            color: white;
+            @include Bannersubtitle(white)
         }
     }
 
@@ -97,7 +129,7 @@ h2{
     {
         display: flex;
         width: 60%;
-        justify-content: space-around;
+        justify-content: center;
         margin-top: 1rem;
         margin-bottom: 1rem;
 
@@ -110,12 +142,13 @@ h2{
             border-radius: 100px;
             background-color: $IndianB;
             position: relative;
+            margin: 0rem 1rem;
             
            // font-size: 0;
         }
         
 
-        button:hover, button:active
+        button:hover, button:active, .activebutton
         {
            background-color: $Cinder;
            color: white;
@@ -126,11 +159,8 @@ h2{
             0 10px 80px rgba(0, 0, 0, 0.12) ;
         }
         button:focus {outline:0;}
-        button:before {
-            content: attr(data-label);
-            font-weight: bold;
-            visibility: hidden;
-        }
+        
+        
         
     }
 }
@@ -159,6 +189,14 @@ h2{
             border-radius: 15px;
             background-color:$IndianB;
             padding: 15px;
+            border: $BorderIndian solid;
+        }
+        >div:hover{
+            background-color: $Cinder;
+            border: none;
+            h2,p{
+                color: white;
+            }
         }
 
         .image
@@ -182,6 +220,8 @@ h2{
 
         
     }
+
+    
 }
 
 

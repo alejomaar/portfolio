@@ -3,8 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=i">  
-    <link rel="stylesheet" href="styles.css">         
-    <title>Document</title>
+    <link rel="stylesheet" href="styles.css">    
+    <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400;500;600;700&display=swap" rel="stylesheet">     
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" rel="stylesheet">    <title>Document</title>
     <script src="grid.js">  </script>
 
 </head>
@@ -18,11 +19,11 @@
     <div class="welcome">
         <div class="blockscience">
             <h1>Ciencia</h1>
-            <h2>Al servicio del arte</h2>
+            <h2>Ciencia al servicio del arte</h2>
         </div>
         <div class="blockart">
             <h1>Arte</h1>
-            <h2>Al servicio de la ciencia</h2>
+            <h2>Arte al servicio de la ciencia</h2>
         </div>
     </div>
 
@@ -30,9 +31,9 @@
         <p class="big">¿Por donde empiezo?</p>
         <p>Busca temas que te interesen a continuación</p>
         <div class="boxbuttons">
-            <button> <span>Todos</span>    </button>
-            <button> <span>Programacion</span></button>
-            <button> <span>Arte</span></button>
+            <button class="activebutton" onclick="buttonmenu(this)"> <span>Todos</span>    </button>
+            <button onclick="buttonmenu(this)"> <span>Programacion</span></button>
+            <button onclick="buttonmenu(this)"> <span>Arte</span></button>
         </div>
 
         
@@ -52,7 +53,6 @@
         </div> -->
         <!-- Finaliza item -->
        
-
     </div>
 
     
@@ -64,6 +64,7 @@
         createcard("Remover cuadricula","Quita la cuadricula de tus dibujos")
         createcard("Remover cuadricula","Quita la cuadricula de tus dibujos")
     </script>
+    <script src ="menuthemes.js"></script>
 
 </body>
 </html>

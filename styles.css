@@ -1,3 +1,13 @@
+h1, h2 {
+  font-size: 1rem;
+  font-family: "Domine", "serif";
+}
+
+p {
+  font-family: "Source Sans Pro", "sans-serif";
+  font-size: 18px;
+}
+
 * {
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
@@ -40,7 +50,7 @@ h1 {
 }
 
 h2 {
-  font-size: 2rem;
+  font-size: 1.5rem;
 }
 
 .welcome {
@@ -48,14 +58,10 @@ h2 {
   display: -ms-flexbox;
   display: flex;
   width: 100%;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
 }
 
 .welcome .blockscience, .welcome .blockart {
-  -webkit-box-flex: 1;
-      -ms-flex: 1 0 0px;
-          flex: 1 0 0;
+  width: 50%;
   height: 100%;
   padding-top: 3rem;
   padding-bottom: 3rem;
@@ -67,6 +73,15 @@ h2 {
 
 .welcome .blockscience h1 {
   color: #15151F;
+  font-size: 80px;
+  font-family: "Domine", "serif";
+}
+
+.welcome .blockscience h2 {
+  color: black;
+  font-size: 25px;
+  font-family: "Source Sans Pro", "sans-serif";
+  font-weight: normal;
 }
 
 .welcome .blockart {
@@ -74,11 +89,16 @@ h2 {
 }
 
 .welcome .blockart h1 {
-  color: #EAD0B4;
+  color: #F8E6D0;
+  font-size: 80px;
+  font-family: "Domine", "serif";
 }
 
 .welcome .blockart h2 {
   color: white;
+  font-size: 25px;
+  font-family: "Source Sans Pro", "sans-serif";
+  font-weight: normal;
 }
 
 .welcome .blockscience, .welcome .blockart > * {
@@ -108,8 +128,9 @@ h2 {
   display: -ms-flexbox;
   display: flex;
   width: 60%;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   margin-top: 1rem;
   margin-bottom: 1rem;
 }
@@ -122,9 +143,10 @@ h2 {
   border-radius: 100px;
   background-color: #EAD0B4;
   position: relative;
+  margin: 0rem 1rem;
 }
 
-.contenido .boxbuttons button:hover, .contenido .boxbuttons button:active {
+.contenido .boxbuttons button:hover, .contenido .boxbuttons button:active, .contenido .boxbuttons .activebutton {
   background-color: #15151F;
   color: white;
   -webkit-box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06), 0 10px 80px rgba(0, 0, 0, 0.12);
@@ -133,12 +155,6 @@ h2 {
 
 .contenido .boxbuttons button:focus {
   outline: 0;
-}
-
-.contenido .boxbuttons button:before {
-  content: attr(data-label);
-  font-weight: bold;
-  visibility: hidden;
 }
 
 .porfolio {
@@ -168,6 +184,16 @@ h2 {
   border-radius: 15px;
   background-color: #EAD0B4;
   padding: 15px;
+  border: #8C6F4D solid;
+}
+
+.porfolio .program > div:hover {
+  background-color: #15151F;
+  border: none;
+}
+
+.porfolio .program > div:hover h2, .porfolio .program > div:hover p {
+  color: white;
 }
 
 .porfolio .program .image {
