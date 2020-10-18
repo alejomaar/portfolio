@@ -1,4 +1,4 @@
-function createcard(titletext,descripciontext)
+function createcard(titletext,descripciontext,imgname)
 {
     //Declarar elementos
     var lista = document.getElementById("Portafolio");
@@ -8,8 +8,11 @@ function createcard(titletext,descripciontext)
 
     var card = document.createElement("DIV");
 
-    var image = document.createElement("DIV");
-    image.classList.add("image")
+    var imagebox = document.createElement("DIV");
+    imagebox.classList.add("imagebox")
+
+    var img = document.createElement("img");
+    img.src = "icontest/"+imgname+".svg";
 
     var titlediv = document.createElement("DIV");
     titlediv.classList.add("title")
@@ -28,8 +31,9 @@ function createcard(titletext,descripciontext)
     //Level 3
     titlediv.appendChild(title);
     descriptiondiv.appendChild(description);
+    imagebox.appendChild(img);
     //level 2
-    card.appendChild(image);
+    card.appendChild(imagebox);
     card.appendChild(titlediv);
     card.appendChild(descriptiondiv);
     //level1
