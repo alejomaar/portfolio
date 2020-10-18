@@ -71,6 +71,9 @@ nav{
     padding: 0 $spacexmax;
     //justify-content: space-between;
     align-items: center;
+    a{
+        position: relative;
+    }
     a:nth-child(-n+2){
        // background-color: red;
         width: min-content;
@@ -82,7 +85,30 @@ nav{
         justify-self: flex-end;
     }
     a:hover{
-        font-weight: bold;
+        font-weight: 600;
+        
+    }
+    a::after{
+        //position: absolute;
+        content: '';
+        display: block;
+        width: 0;
+        height: 2px;
+        background: #000;
+        transition: width .3s;
+    }
+    a:hover::after{
+        width: 100%;      
+    }
+    
+    a::before
+    {
+        display: block;
+        content: attr(title);
+        font-weight: 600;
+        height: 0;
+        overflow: hidden;
+        visibility: hidden;
     }
 }
 //Specific tags

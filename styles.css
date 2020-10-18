@@ -70,6 +70,10 @@ nav {
           align-items: center;
 }
 
+nav a {
+  position: relative;
+}
+
 nav a:nth-child(-n+2) {
   width: -webkit-min-content;
   width: -moz-min-content;
@@ -83,7 +87,30 @@ nav a:nth-child(3) {
 }
 
 nav a:hover {
-  font-weight: bold;
+  font-weight: 600;
+}
+
+nav a::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #000;
+  -webkit-transition: width .3s;
+  transition: width .3s;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+nav a::before {
+  display: block;
+  content: attr(title);
+  font-weight: 600;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
 }
 
 p.big {
