@@ -1,130 +1,4 @@
-$IndianW: #F8E6D0;
-$IndianB: #EAD0B4;
-$BorderIndian: #8C6F4D;
-$Cinder: #15151F;
-
-$Serif:  "Domine","serif";
-$Sans:  "Source Sans Pro", "sans-serif";
-
-$spacexmax: 50px;
-$spacexmin: 20px;
-
-$spaceymax: 50px;
-$spaceymin: 20px;
-
-
-h1,h2{
-    font-size: 1rem;
-    font-family: $Serif;
-}
-
-p,a{
-    font-family: $Sans;
-    font-size: 18px;
-    //font-weight: 300;
-}
-a{
-    text-decoration: none;
-    color:$Cinder;
-}
-//General config
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-.container
-{
-    display: flex;
-    flex-flow: row wrap;
-    text-align: center;
-    //width: 80%;
-}
-
-body
-{
-    background-color: $IndianW;
-    max-width: 100%;
-}
-
-header{
-    background-color: $IndianB;
-    height: 3rem;
-    display: flex;
-    align-items: center ;
-    padding-left: $spacexmax;
-    img{
-        height: 80%;
-    }
-    a{  
-        margin-left: $spacexmin;
-        font-weight: bold;
-        font-size: 25px;
-    }
-}
-
-nav{
-    height: 3rem;
-    display: flex;
-    width: 100%;
-    padding: 0 $spacexmax;
-    //justify-content: space-between;
-    align-items: center;
-    a{
-        position: relative;
-    }
-    a:nth-child(-n+2){
-       // background-color: red;
-        width: min-content;
-        margin-right: $spacexmin;
-    }
-    a:nth-child(3){
-        margin-left: auto;
-       // background-color: blue;
-        justify-self: flex-end;
-    }
-    a:hover{
-        font-weight: 600;
-        
-    }
-    a::after{
-        //position: absolute;
-        content: '';
-        display: block;
-        width: 0;
-        height: 2px;
-        background: #000;
-        transition: width .3s;
-    }
-    a:hover::after{
-        width: 100%;      
-    }
-    
-    a::before
-    {
-        display: block;
-        content: attr(title);
-        font-weight: 600;
-        height: 0;
-        overflow: hidden;
-        visibility: hidden;
-    }
-}
-//Specific tags
-p.big{
-    font-size: 2rem;
-    margin-bottom: 0.3rem;
-}
-
-h1{
-    font-size: 5rem;
-}
-
-
-h2{
-    font-size: 1.5rem;
-}
+@import "globals";
 //class
 .welcome
 {
@@ -184,27 +58,30 @@ h2{
 
 .contenido
 {
-    margin-top: 3rem;
+   // margin-top: $spacey2;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
 
+    .big{
+        margin-top: $spacey2;
+        margin-bottom: $spacey1;
+    }
+
     .boxbuttons
     {
         display: flex;
         width: 60%;
         justify-content: center;
-        margin-top: 1rem;
-        margin-bottom: 1rem;
+        margin: $spacey1 0;
 
         button{
             
             padding: 15px 32px;
             font-size: 1rem;
-            border: none;
-            text-decoration: none;
+            
             border-radius: 100px;
             background-color: $IndianB;
             position: relative;
@@ -224,7 +101,7 @@ h2{
             0 12.5px 10px rgba(0, 0, 0, 0.06),
             0 10px 80px rgba(0, 0, 0, 0.12) ;
         }
-        button:focus {outline:0;}
+        
         
         
         

@@ -3,7 +3,7 @@ h1, h2 {
   font-family: "Domine", "serif";
 }
 
-p, a {
+p, a, span, button, label {
   font-family: "Source Sans Pro", "sans-serif";
   font-size: 18px;
 }
@@ -20,15 +20,13 @@ a {
   padding: 0;
 }
 
-.container {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-flow: row wrap;
-          flex-flow: row wrap;
-  text-align: center;
+button {
+  border: none;
+  text-decoration: none;
+}
+
+button:focus {
+  outline: 0;
 }
 
 body {
@@ -115,7 +113,6 @@ nav a::before {
 
 p.big {
   font-size: 2rem;
-  margin-bottom: 0.3rem;
 }
 
 h1 {
@@ -179,7 +176,6 @@ h2 {
 }
 
 .contenido {
-  margin-top: 3rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -196,6 +192,11 @@ h2 {
   width: 100%;
 }
 
+.contenido .big {
+  margin-top: 50px;
+  margin-bottom: 20px;
+}
+
 .contenido .boxbuttons {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -204,15 +205,12 @@ h2 {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin-top: 1rem;
-  margin-bottom: 1rem;
+  margin: 20px 0;
 }
 
 .contenido .boxbuttons button {
   padding: 15px 32px;
   font-size: 1rem;
-  border: none;
-  text-decoration: none;
   border-radius: 100px;
   background-color: #EAD0B4;
   position: relative;
@@ -224,10 +222,6 @@ h2 {
   color: white;
   -webkit-box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06), 0 10px 80px rgba(0, 0, 0, 0.12);
           box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06), 0 10px 80px rgba(0, 0, 0, 0.12);
-}
-
-.contenido .boxbuttons button:focus {
-  outline: 0;
 }
 
 .porfolio {
