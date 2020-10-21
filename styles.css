@@ -1,16 +1,55 @@
-h1, h2 {
-  font-size: 1rem;
-  font-family: "Domine", "serif";
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
 }
 
-p, a, span, button, label {
-  font-family: "Source Sans Pro", "sans-serif";
-  font-size: 18px;
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
 }
 
-a {
-  text-decoration: none;
-  color: #15151F;
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
 }
 
 * {
@@ -18,6 +57,30 @@ a {
           box-sizing: border-box;
   margin: 0;
   padding: 0;
+}
+
+body {
+  background-color: #F8E6D0;
+  max-width: 100%;
+}
+
+html {
+  font-size: 1vw;
+}
+
+h1, h2 {
+  font-size: 1rem;
+  font-family: "Domine", "serif";
+}
+
+p, a, span, button, label {
+  font-family: "Source Sans Pro", "sans-serif";
+  font-size: 1.2rem;
+}
+
+a {
+  text-decoration: none;
+  color: #15151F;
 }
 
 button {
@@ -29,11 +92,6 @@ button:focus {
   outline: 0;
 }
 
-body {
-  background-color: #F8E6D0;
-  max-width: 100%;
-}
-
 header {
   background-color: #EAD0B4;
   height: 3rem;
@@ -43,7 +101,7 @@ header {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-  padding-left: 50px;
+  padding-left: 2.8rem;
 }
 
 header img {
@@ -51,9 +109,9 @@ header img {
 }
 
 header a {
-  margin-left: 20px;
+  margin-left: 1.1rem;
   font-weight: bold;
-  font-size: 25px;
+  font-size: 1.5rem;
 }
 
 nav {
@@ -62,7 +120,7 @@ nav {
   display: -ms-flexbox;
   display: flex;
   width: 100%;
-  padding: 0 50px;
+  padding: 0 2.8rem;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
@@ -76,7 +134,7 @@ nav a:nth-child(-n+2) {
   width: -webkit-min-content;
   width: -moz-min-content;
   width: min-content;
-  margin-right: 20px;
+  margin-right: 1.1rem;
 }
 
 nav a:nth-child(3) {
@@ -143,13 +201,13 @@ h2 {
 
 .welcome .blockscience h1 {
   color: #15151F;
-  font-size: 80px;
+  font-size: 8rem;
   font-family: "Domine", "serif";
 }
 
 .welcome .blockscience h2 {
   color: black;
-  font-size: 25px;
+  font-size: 1.5rem;
   font-family: "Source Sans Pro", "sans-serif";
   font-weight: normal;
 }
@@ -160,13 +218,13 @@ h2 {
 
 .welcome .blockart h1 {
   color: #F8E6D0;
-  font-size: 80px;
+  font-size: 8rem;
   font-family: "Domine", "serif";
 }
 
 .welcome .blockart h2 {
   color: white;
-  font-size: 25px;
+  font-size: 1.5rem;
   font-family: "Source Sans Pro", "sans-serif";
   font-weight: normal;
 }
@@ -193,8 +251,8 @@ h2 {
 }
 
 .contenido .big {
-  margin-top: 50px;
-  margin-bottom: 20px;
+  margin-top: 2.8rem;
+  margin-bottom: 1.1rem;
 }
 
 .contenido .boxbuttons {
@@ -205,13 +263,13 @@ h2 {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  margin: 20px 0;
+  margin: 1.1rem 0;
 }
 
 .contenido .boxbuttons button {
-  padding: 15px 32px;
+  padding: 0.8rem 1.8rem;
   font-size: 1rem;
-  border-radius: 100px;
+  border-radius: 4.5rem;
   background-color: #EAD0B4;
   position: relative;
   margin: 0rem 1rem;
@@ -226,7 +284,7 @@ h2 {
 
 .porfolio {
   margin-top: 1rem;
-  width: 90%;
+  width: 80vw;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -239,26 +297,30 @@ h2 {
 }
 
 .porfolio .program {
-  height: 350px;
-  width: 33.33333%;
-  max-width: 300px;
-  padding: 10px;
+  height: 22rem;
+  width: 33.33333vw;
+  max-width: 18rem;
+  padding: 0.6rem;
 }
 
 .porfolio .program > div {
   width: 100%;
   height: 100%;
-  border-radius: 15px;
+  border-radius: 1rem;
   background-color: #EAD0B4;
-  padding: 15px;
-  border: #8C6F4D solid;
+  padding: 1rem;
+  border: 2px #8C6F4D solid;
   -webkit-transition: all .2s ease-in-out;
   transition: all .2s ease-in-out;
 }
 
+.porfolio .program > div h2 {
+  font-weight: bold;
+}
+
 .porfolio .program > div:hover {
   background-color: #15151F;
-  border: none;
+  border: 2px #15151F solid;
   -webkit-transform: scale(1.04);
           transform: scale(1.04);
 }
@@ -300,7 +362,7 @@ h2 {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  padding-top: 10px;
+  padding-top: 0.5rem;
   height: 25%;
 }
 /*# sourceMappingURL=styles.css.map */

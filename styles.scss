@@ -18,13 +18,13 @@
 
     @mixin Bannertitle($Color) {
         color: $Color;
-        font-size: 80px;
+        font-size: 8rem;
         font-family: $Serif;
     }
 
     @mixin Bannersubtitle($Color) {
         color: $Color;
-        font-size: 25px;
+        font-size: 1.5rem;
         font-family: $Sans;
         font-weight: normal;
     }
@@ -79,10 +79,10 @@
 
         button{
             
-            padding: 15px 32px;
+            padding: 0.8rem 1.8rem;
             font-size: 1rem;
             
-            border-radius: 100px;
+            border-radius: 4.5rem;
             background-color: $IndianB;
             position: relative;
             margin: 0rem 1rem;
@@ -111,34 +111,39 @@
 .porfolio
 {
     margin-top: 1rem;
-    width: 90%;
+    width: 80vw;
     display: flex;
     flex-wrap: wrap;
     margin: 0 auto;
     justify-content: center;
     .program
     {
-        height: 350px;
-        width: 1/3*100%;
-        max-width: 300px;
+        height: 22rem;
+        width: 1/3*100vw;
+        max-width: 18rem;
         
        // border-style: solid;
         //HERE IS THE LIMIT
-        padding: 10px;
+        padding: 0.6rem;
         >div
         {
             width: 100%;
             height: 100%;
-            border-radius: 15px;
+            border-radius: 1rem;
             background-color:$IndianB;
-            padding: 15px;
-            border: $BorderIndian solid;
+            padding: 1rem;
+            border: 2px $BorderIndian solid;
             transition: all .2s ease-in-out;
+
+            h2{
+                font-weight: bold;
+            }
         }
         >div:hover{
             background-color: $Cinder;
-            border: none;
+            border: 2px $Cinder solid;
             transform: scale(1.04);
+            
             h2,p{
                 color: white;
             }
@@ -168,7 +173,7 @@
         .description
         {
             display:flex;
-            padding-top: 10px;
+            padding-top: 0.5rem;
            // flex-direction: column-reverse;
             height: 25%;
              //background-color: red;

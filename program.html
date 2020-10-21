@@ -46,52 +46,7 @@
     </div>
     
 
-    <script>
-        function selectimage (img)
-        {
-            boximageactive();
-            var imgOutput = document.getElementById("OutputImage"); //añadir imagen en la pantalla
-            imgOutput.src = window.URL.createObjectURL(img.files[0]);
-            
-        }  
-
-        function boximageactive()
-        {
-            var BoxOutputImg = document.getElementById("BoxOutputImg");
-            var TextOutputImg = document.getElementById("TextOutputImg");
-
-            // Remover detalles del css cuando no se ha elegido
-            BoxOutputImg.classList.add("activeimage");
-            //Quitar el texto al añadir la imagen
-            TextOutputImg.classList.add("offtext")
-
-        }
-    </script>
-
-    <script>
-        var BoxInputImg = document.getElementById("BoxInputImg");
-        var fileimg = document.getElementById("file");
-       // BoxInputImg.addEventListener('click',() => fileimg.click());
-
-        BoxInputImg.addEventListener('dragover',(e)=>{
-            e.preventDefault();
-            BoxInputImg.style.opacity ="0.5";
-        })
-
-        BoxInputImg.addEventListener('dragleave',(e)=>{
-            e.preventDefault();
-            BoxInputImg.style.opacity ="1";
-        })
-        
-        
-        BoxInputImg.addEventListener('drop',(e)=>{
-            boximageactive();
-            BoxInputImg.style.opacity ="1";
-            e.preventDefault();   
-            document.getElementById("OutputImage").src= window.URL.createObjectURL(e.dataTransfer.files[0]);
-        })
-
-    </script>
+    <script src="imageloadanddrag.js"></script>
 
     
     

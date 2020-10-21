@@ -6,12 +6,30 @@ $Cinder: #15151F;
 $Serif:  "Domine","serif";
 $Sans:  "Source Sans Pro", "sans-serif";
 
-$spacex2: 50px;
-$spacex1: 20px;
+$spacex2: 2.8rem;
+$spacex1: 1.1rem;
 
-$spacey3: 120px;
-$spacey2: 50px;
-$spacey1: 20px;
+$spacey3: 6.5rem;
+$spacey2: 2.8rem;
+$spacey1: 1.1rem;
+
+@import "normalize";
+
+*{
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body
+{
+    background-color: $IndianW;
+    max-width: 100%;
+}
+
+html{
+    font-size: 1vw;
+}
 
 
 h1,h2{
@@ -21,7 +39,7 @@ h1,h2{
 
 p,a,span,button,label{
     font-family: $Sans;
-    font-size: 18px;
+    font-size: 1.2rem;
     //font-weight: 300;
 }
 a{
@@ -29,11 +47,7 @@ a{
     color:$Cinder;
 }
 //General config
-*{
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
+
 
 button{
     border: none;
@@ -42,11 +56,7 @@ button{
 
 button:focus {outline:0;}
 
-body
-{
-    background-color: $IndianW;
-    max-width: 100%;
-}
+
 
 header{
     background-color: $IndianB;
@@ -60,7 +70,7 @@ header{
     a{  
         margin-left: $spacex1;
         font-weight: bold;
-        font-size: 25px;
+        font-size: 1.5rem;
     }
 }
 
