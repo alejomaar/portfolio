@@ -23,8 +23,20 @@
             <a href="">Contactame</a>
         </nav>
         <div class="application">
-            <div class="interactionmenu">
-    
+            <div class="interactionmenu" id="interactionmenu">
+
+                <h2 class="w80">Pesos de RGB a blanco y negro</h2>
+
+                <!-- <div>
+                    <span>Peso del canal Rojo</span>
+                    <input type="range" min="1" max="100" value="50" class="slider">
+                    <div class="Xflexbetween w100">
+                        <span>0</span>
+                        <span>100</span>
+                    </div>
+                </div> -->
+
+
             </div>
             <div class="display">
                 <div class="imagesection">
@@ -33,8 +45,6 @@
                         <span>o</span>
                         <input type="file" id="file" accept="image/*" onchange="selectimage (this)">
                         <label for="file">Elige un archivo</label>
-                        
-
                     </div>
                     <div class="boximage" id="BoxOutputImg">
                         <span id="TextOutputImg">Imagen de salida </span>
@@ -47,6 +57,7 @@
     
 
     <script src="imageloadanddrag.js"></script>
+    <script src="componentApp.js"></script>
 
     
     

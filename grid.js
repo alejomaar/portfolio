@@ -1,7 +1,9 @@
 function createcard(titletext,descripciontext,imgname)
 {
-    //Declarar elementos
+    //Obtener elementos
     var lista = document.getElementById("Portafolio");
+    //Declarar elementos
+    
 
     var program = document.createElement("DIV");
     program.classList.add("program")
@@ -21,7 +23,7 @@ function createcard(titletext,descripciontext,imgname)
     title.textContent = titletext;
 
     var descriptiondiv = document.createElement("DIV");
-    descriptiondiv.classList.add("description")
+    descriptiondiv.classList.add("description");
 
     var description = document.createElement("P");
     description.textContent = descripciontext;

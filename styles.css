@@ -181,6 +181,41 @@ h2 {
   font-size: 1.5rem;
 }
 
+.w100 {
+  width: 100%;
+}
+
+.w80 {
+  width: 80%;
+}
+
+.Xflexbetween {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.Xflexcenter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.Xflexevenly {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
 .welcome {
   display: -webkit-box;
   display: -ms-flexbox;

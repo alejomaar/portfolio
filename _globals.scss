@@ -134,3 +134,28 @@ h1{
 h2{
     font-size: 1.5rem;
 }
+.w100
+{
+    width: 100%;
+}
+
+.w80
+{
+    width: 80%;
+}
+
+
+.Xflexbetween{
+    display: flex;
+    justify-content: space-between;
+}
+
+.Xflexcenter{
+    display: flex;
+    justify-content: center;
+}
+
+.Xflexevenly{
+    display: flex;
+    justify-content: space-evenly;
+}
