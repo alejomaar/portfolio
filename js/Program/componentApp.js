@@ -3,6 +3,7 @@ function $(x) {return document.getElementById (x);}
 const interactionmenu = $("interactionmenu");
 const SliderTemplate = $("SliderTemplate").content;
 
+
 function sliderCreate(Title,Minvalue="0",Maxvalue="100",Initvalue)
 {
     if (Initvalue === undefined){

@@ -1,4 +1,4 @@
-@import "globals";
+@import "../globals";
 
 body,html{
     height: 100%;
@@ -110,7 +110,7 @@ body,html{
     .display
     {
         width: 100%;
-        .imagesection
+        .sectiondisplay
         {
             padding: $spacey2;
             display: flex;
@@ -138,6 +138,7 @@ body,html{
                 color: white;
             }
             img{
+                display: none;
                 max-height:100%; max-width:100%;
             }
             input[type=file]

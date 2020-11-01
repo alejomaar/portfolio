@@ -1,27 +1,34 @@
-// Archivo que genera las interacciones de drag over y de carga de imagen 
+// Box Image Scope
 
-//Muestra la imagen cargada.
+const BoxInputImgOff = $("BoxInputImg").cloneNode(true);
+const BoxOutputImgOff = $("BoxOutputImg").cloneNode(true);
+var ImageActive=false;
+//const BoxEmpty =NewBoxEmpty();
 
-function selectimage (img)
-{
-    boximageactive();
-    var imgOutput = document.getElementById("OutputImage"); //añadir imagen en la pantalla
-    imgOutput.src = window.URL.createObjectURL(img.files[0]);
-    
-}  
+//Creates empty box container agree if it is input or output
+function BoxEmpty(isInput){
+    var newbox = BoxOutputImgOff.cloneNode(true);
+    if(isInput){
+        newbox.setAttribute("id","BoxInputImg");
+        newbox.querySelector("img").setAttribute("id","InputImg");
+    }
 
-function boximageactive()
-{
-    //Obtener elementos
-    var BoxOutputImg = document.getElementById("BoxOutputImg");
-    var TextOutputImg = document.getElementById("TextOutputImg");
-
-    // Remover detalles del css cuando no se ha elegido
-    BoxOutputImg.classList.add("activeimage");
-    //Quitar el texto al añadir la imagen
-    TextOutputImg.classList.add("offtext")
-
+    newbox.classList.add("activeimage");
+    //reset style
+    newbox.querySelector("span").remove();
+    return newbox;
 }
+
+//remplace old box container to new box 
+function BoxRemplace(Oldelement,Newelemet)
+{
+    var NewElement =Oldelement.insertAdjacentElement('afterend',Newelemet);
+    Oldelement.remove();
+    
+    return NewElement;
+}
+
+// Input scope
 
 //Obtener elementos del input de laimagen
 var BoxInputImg = document.getElementById("BoxInputImg");
@@ -38,11 +45,38 @@ BoxInputImg.addEventListener('dragleave',(e)=>{
     BoxInputImg.style.opacity ="1";
 })
 
+//This function is called after to click (Select file) (NO MOUSE DROP)
+function selectimage (img)
+{
+    //Change Aspect of Input Box
+    BoxImgOnInput = BoxRemplace(BoxInputImg,BoxEmpty(true));    
+    BoxImgOnInput.querySelector("img").src= window.URL.createObjectURL(img.files[0]);
+    BoxImgOnInput.querySelector("img").style.display= "block";
+    //Change Aspect of Output Box
+
+    BoxImgOnOutput = BoxRemplace($("BoxOutputImg"),BoxEmpty());
+    BoxImgOnOutput.querySelector("img").src = window.URL.createObjectURL(img.files[0]);
+    BoxImgOnOutput.querySelector("img").style.display= "block";
+
+    //Call to p5js to draw in canvas
+    ImageActive=true;
+    startSketch();
+    
+} 
+
 // Añadir elemento al soltarlo en la zona de drop
 BoxInputImg.addEventListener('drop',(e)=>{
-    boximageactive();
-    BoxInputImg.style.opacity ="1";
-    e.preventDefault();   
-    document.getElementById("OutputImage").src= window.URL.createObjectURL(e.dataTransfer.files[0]);
+    e.preventDefault();
+    //Change Aspect of Input Box
+    BoxImgOnInput = BoxRemplace(BoxInputImg,BoxEmpty(true));    
+    BoxImgOnInput.querySelector("img").src= window.URL.createObjectURL(e.dataTransfer.files[0]);
+    BoxImgOnInput.querySelector("img").style.display= "block";
+    //Change Aspect of Output Box
+    BoxImgOnOutput = BoxRemplace($("BoxOutputImg"),BoxEmpty());
+    BoxImgOnOutput.querySelector("img").src = window.URL.createObjectURL(e.dataTransfer.files[0]);
+    BoxImgOnOutput.querySelector("img").style.display= "block";
+
+    ImageActive=true;
+
 })
 

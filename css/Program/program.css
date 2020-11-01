@@ -351,7 +351,7 @@ body, html {
   width: 100%;
 }
 
-.application .display .imagesection {
+.application .display .sectiondisplay {
   padding: 2.8rem;
   display: -webkit-box;
   display: -ms-flexbox;
@@ -389,6 +389,7 @@ body, html {
 }
 
 .application .display .boximage img {
+  display: none;
   max-height: 100%;
   max-width: 100%;
 }
