@@ -1,0 +1,14 @@
+{% macro TemplateSlider(Title,MinValue=1,MaxValue=100,InitValue=None)  %}
+    {% if InitValue==None%}
+        {% set InitValue=MinValue|int+MaxValue|int %}
+        {% set InitValue=InitValue*0.5 %}
+    {% endif %}
+    <div>
+        <span name="Title">{{ Title }}</span>
+        <input type="range" min="{{MinValue}}" max="{{MaxValue}}" value="{{InitValue}}" class="slider">
+        <div class="Xflexbetween w100">
+            <span name="InputValue">{{MinValue}}</span>
+            <span name="InputValue">{{MaxValue}}</span>
+        </div>
+    </div>
+{% endmacro %}

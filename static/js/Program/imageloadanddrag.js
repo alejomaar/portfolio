@@ -59,8 +59,8 @@ function selectimage (img)
     BoxImgOnOutput.querySelector("img").style.display= "block";
 
     //Call to p5js to draw in canvas
-    ImageActive=true;
-    startSketch();
+    /*ImageActive=true;
+    startSketch();*/
     
 } 
 

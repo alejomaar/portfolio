@@ -25,7 +25,7 @@ function startSketch(){
 
     p.draw = function() {
       p.background(0);
-      p.image(OutImgCanvas,mouseX,mouseY,WidthBox,HeigthBox);
+      p.image(OutImgCanvas,p.mouseX,p.mouseY,WidthBox,HeigthBox);
 
     };
   };
