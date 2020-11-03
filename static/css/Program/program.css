@@ -389,7 +389,6 @@ body, html {
 }
 
 .application .display .boximage img {
-  display: none;
   max-height: 100%;
   max-width: 100%;
 }
@@ -432,7 +431,8 @@ body, html {
           justify-content: center;
 }
 
-.application .display .offtext {
-  display: none;
+.application .display canvas {
+  width: 100%;
+  height: 100%;
 }
 /*# sourceMappingURL=program.css.map */
