@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=i">  
-    <link rel="stylesheet" href="css/Home/styles.css">    
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/Home/styles.css')}} ">    
     <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400;500;600;700&display=swap" rel="stylesheet">     
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" rel="stylesheet"> 
        <title>Document</title>
@@ -27,15 +27,7 @@
     </template>
 
 
-    <header>
-        <img src="icono.svg" alt="">
-        <a href="">MACHINE IMAGINE</a>
-    </header>
-    <nav>
-        <a href="" title="Para Diseñadores">Para Diseñadores</a>
-        <a href=""  title="Para Desarrolladores">Para Desarrolladores</a>
-        <a href="">Contactame</a>
-    </nav>
+    {% include 'navbar.html' %}
     <div class="welcome">
         <div class="blockscience">
             <h1>Ciencia</h1>
@@ -61,8 +53,8 @@
 
     <div class="porfolio" id="Portafolio"></div>
 
-    <script src ="js/Home/button.js"></script>
-    <script src="js/Home/gridcards.js"></script>
+    <script src ="/static/js/Home/button.js"></script>
+    <script src="/static/js//Home/gridcards.js"></script>
     <script >
         createcard("Remover cuadricula para imagenes",
         "Quita la cuadricula de tus dibujos ","ic1")
