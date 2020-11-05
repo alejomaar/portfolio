@@ -1,4 +1,4 @@
-@import "globals";
+@import "../globals";
 //class
 .welcome
 {
@@ -122,11 +122,14 @@
         width: 1/3*100vw;
         max-width: 18rem;
         
+        
        // border-style: solid;
         //HERE IS THE LIMIT
         padding: 0.6rem;
-        >div
+        >a
         {
+            display: block;
+            cursor: pointer;
             width: 100%;
             height: 100%;
             border-radius: 1rem;
@@ -139,7 +142,7 @@
                 font-weight: bold;
             }
         }
-        >div:hover{
+        >a:hover{
             background-color: $Cinder;
             border: 2px $Cinder solid;
             transform: scale(1.04);

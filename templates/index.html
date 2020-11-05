@@ -1,3 +1,5 @@
+{% from "cardprogram.html" import card %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,22 +12,6 @@
 
 </head>
 <body>
-    <template id="card">
-        <div class="program">
-            <div>
-                <div class="imagebox">
-                    <img >
-                </div>
-                <div class="title">
-                    <h2>Remocion deloc cuadricula es algo que se puede</h2>
-                </div>
-                <div class="description">
-                    <p>Remueve la cuadricula de tus dibujos a lapiz </p>
-                </div>
-            </div>
-        </div>
-    </template>
-
 
     {% include 'navbar.html' %}
     <div class="welcome">
@@ -46,38 +32,18 @@
             <button class="activebutton" onclick="buttonmenu(this)"> <span>Todos</span>    </button>
             <button onclick="buttonmenu(this)"> <span>Programacion</span></button>
             <button onclick="buttonmenu(this)"> <span>Arte</span></button>
-        </div>
-
-        
+        </div>  
     </div>
 
-    <div class="porfolio" id="Portafolio"></div>
+    <div class="porfolio" id="Portafolio">
+        {{card('Blanco y negro','Convierte imagenes a color a blanco y negro','ic1.svg','program')}}
+        {{card('Mejora de contraste','Arregla el contraste de tus imagenes para un acabado mas profesional','ic2.svg')}}
+        {{card('Triangulo de Sierpinslki','Disfruta el fractal del triangulo de sierpinsky en una vista interactiva','ic3.svg')}}
+        {{card('Arte ASCII','Transforma tus imagenes a una composicion hecha con letras ','ic4.svg')}}
+        {{card('Efecto Oleo','Transforma tus imagenes como si estuvieran hechas con pintura oleo','ic5.svg')}}
+    </div>
 
     <script src ="/static/js/Home/button.js"></script>
-    <script src="/static/js//Home/gridcards.js"></script>
-    <script >
-        createcard("Remover cuadricula para imagenes",
-        "Quita la cuadricula de tus dibujos ","ic1")
-        createcard("Mejora de contraste",
-        "Arregla el contraste de tus imagenes para un acabado mas profesional",
-        "ic2")
-        createcard("Triangulo de Sierpinslki",
-        "Disfruta el fractal del triangulo de sierpinsky en una vista interactiva ",
-        "ic3")
-        createcard("Arte ASCII",
-        "Transforma tus imagenes a una composicion hecha con letras ",
-        "ic5")
-        createcard("Efecto Oleo",
-        "Transforma tus imagenes como si estuvieran hechas con pintura oleo ",
-        "ic6")
-        createcard("Efecto Oleo",
-        "Transforma tus imagenes como si estuvieran hechas con pintura oleo ",
-        "ic6")
-        createcard("Efecto Oleo",
-        "Transforma tus imagenes como si estuvieran hechas con pintura oleo ",
-        "ic6")
-    </script>
-
-
+    
 </body>
 </html>
