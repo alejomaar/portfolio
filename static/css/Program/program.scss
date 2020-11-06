@@ -27,9 +27,11 @@ body,html{
 
        // resize: horizontal;
         //overflow: auto;
-        background-color: $IndianB;
+        background-color: $Cinder;
         padding-top: 3rem;
-
+        h2,span{
+            color: white;
+        }
         h2{
             text-align: center;
             font-weight: bold;
@@ -110,6 +112,7 @@ body,html{
     .display
     {
         width: 100%;
+        background-color: $IndianB;
         .sectiondisplay
         {
             padding: $spacey2;
@@ -123,9 +126,9 @@ body,html{
         .boximage
         {
             width: 37%;
-            height: 250px;
+            height: 18rem;
             //padding-top: 32%;
-            padding: 50px 0;
+            padding: 2.8rem 0;
             background-color: $Cinder;
             //border:2px solid #000;
             outline: 2px dashed #fff;
@@ -153,8 +156,8 @@ body,html{
                 background-color: white;
                 color: black;
                 cursor: pointer;
-                padding: 10px;
-                border-radius: 10px;
+                padding: 0.5rem;
+                border-radius: 0.5rem;
                 transition: all .2s ease-in-out;
             }
             label:hover

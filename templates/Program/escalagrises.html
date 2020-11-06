@@ -15,18 +15,6 @@
 </head>
 <body>
 
-    
-    <!-- <template id="SliderTemplate">
-        <div>
-            <span name="Title">Peso del canal Rojo</span>
-            <input type="range"  class="slider">
-            <div class="Xflexbetween w100">
-                <span name="InputValue">0</span>
-                <span name="InputValue">100</span>
-            </div>
-        </div>
-         min="0" max="100" value="50" 
-    </template> -->
 
 
     <div class="all">
@@ -59,16 +47,18 @@
     </div>
     
     <script>
-    var isImgActive= false;
-    var movingSlider = false;
-    var sliders = document.getElementsByName("T_Slider");
+    var isImgActive= false; // if the user has selected image or not.
+    var movingSlider = false; // if the user has drop any slider.
+    var sliders = document.getElementsByName("T_Slider");// get all sliders
 
+    // Add mouse up listener to all the sliders
     sliders.forEach(SliderMouseUp)
 
     function SliderMouseUp(Slider) {
         Slider.addEventListener('mouseup',()=>{
             if(isImgActive){
                 movingSlider=true;
+                //Activate p5 function to modify image
                 myp5.sliderMove();
             }
                         
