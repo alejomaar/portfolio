@@ -1,0 +1,80 @@
+{% from "Program/T_Slider.html" import TemplateSlider %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <base href="/"> -->
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/Program/program.css')}}">
+    <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400;500;600;700&display=swap" rel="stylesheet">     
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" rel="stylesheet"> 
+    
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script> -->
+
+    <title>Document</title>
+</head>
+<body>
+
+
+
+    <div class="all">
+        {% include 'navbar.html' %}
+        <div class="application">
+            <!-- Here shows the output of application -->
+            <div class="display">
+                <div class="ThreeContainer" id="ThreeContainer">
+
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <script src ="https://cdnjs.cloudflare.com/ajax/libs/three.js/r122/three.min.js"> </script>
+    <script src="{{ url_for('static',filename='js/general.js')}}"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r122/three.min.js"></script>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            //Get 3d div container and their attributes
+            var ThreeContainer = $("ThreeContainer");
+            var Width3dView = ThreeContainer.offsetWidth;
+            var Heigth3dView = ThreeContainer.offsetHeight;
+
+            //Creating scene
+            var scene = new THREE.Scene();
+            scene.background = new THREE.Color(0x2a3b4c);
+            //add camera
+            var camera = new THREE.PerspectiveCamera(75, Width3dView*1.0/Heigth3dView);
+
+            //Renderer
+            var renderer = new THREE.WebGLRenderer();
+            renderer.setSize(Width3dView,Heigth3dView);
+            ThreeContainer.appendChild(renderer.domElement);
+
+            //add geometry
+            var geometry = new THREE.BoxGeometry();
+            var material = new THREE.MeshBasicMaterial({color: 0x00ff00});
+            var cube = new THREE.Mesh(geometry,material);
+
+            scene.add(cube);
+            camera.position.z = 5;
+
+            //Draw scene by each frame 
+            var animate =function()
+            {
+                requestAnimationFrame(animate);
+                cube.rotation.x += 0.05;
+                cube.rotation.y += 0.05;
+                renderer.render(scene,camera);
+            }
+
+            animate();
+
+        });
+        
+
+    </script>
+  
+    
+</body>
+</html>

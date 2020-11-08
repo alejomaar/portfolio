@@ -17,171 +17,24 @@ body,html{
     flex: 1 0 0;
     width: 100%;
     flex-direction: row;
-    //menu 1 importante
-    .interactionmenu
-    {
-        width: 30%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-       // resize: horizontal;
-        //overflow: auto;
-        background-color: $Cinder;
-        padding-top: 3rem;
-        h2,span{
-            color: white;
-        }
-        h2{
-            text-align: center;
-            font-weight: bold;
-            margin-bottom: 2rem;
-        }
-
-        >div
-        {
-            margin: 0 auto;
-            display: flex;
-            width: 60%;
-            text-align: center;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
-        .slider
-        {
-            margin-top: 1.5rem;
-            width: 100%;
-            -webkit-appearance: none;
-            &:focus {
-                outline: none;
-            }
-            &::-webkit-slider-runnable-track {
-                width: 100%;
-                height: 0.5rem;
-                cursor: pointer;
-                box-shadow: none;
-                background: #ffffff;
-                border-radius: 0px;
-                border: 0px solid #010101;
-            }
-            &::-moz-range-track {
-                width: 100%;
-                height: 0.5rem;
-                cursor: pointer;
-                box-shadow: none;
-                background: #ffffff;
-                border-radius: 0px;
-                border: 0px solid #010101;
-            }
-            $Widthpointer:1rem;
-            $Heightpointer:1.5rem;
-            &::-webkit-slider-thumb {
-                box-shadow: none;
-                border: 0px solid #ffffff;
-                box-shadow: 0px 10px 10px rgba(0,0,0,0.25);
-                height: $Heightpointer;
-                width: $Widthpointer;
-                //border-radius: 22px;
-                background: rgba(255,255,255,1);
-                cursor: pointer;
-                -webkit-appearance: none;
-                margin-top: -0.5rem;
-            }
-          &::-moz-range-thumb{
-                box-shadow: none;
-                border: 0px solid #ffffff;
-                box-shadow: 0px 10px 10px rgba(0,0,0,0.25);
-                height: $Heightpointer;
-                width: $Widthpointer;
-               // border-radius: 22px;
-                background: rgba(255,255,255,1);
-                cursor: pointer;
-                -webkit-appearance: none;
-                margin-top: -0.5rem;
-          }
-          &::-moz-focus-outer {
-            border: 0;
-            }
-           
-        }
-
-        
-    }
     // Menu 2 importante
     .display
     {
         width: 100%;
+        max-height: 100%;
         background-color: $IndianB;
-        .sectiondisplay
+        display: flex;
+        align-items: center;
+        .ThreeContainer
         {
-            padding: $spacey2;
-            display: flex;
-            width: 100%;
-            justify-content: space-evenly;
-        }
-
-        
-
-        .boximage
-        {
-            width: 37%;
-            height: 18rem;
-            //padding-top: 32%;
-            padding: 2.8rem 0;
+            margin: 2rem auto;
+            width: 80%;
+            height: 80%;
+            
+   
             background-color: $Cinder;
-            //border:2px solid #000;
-            outline: 2px dashed #fff;
-            outline-offset: -10px;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-evenly;
-            align-items: center;
-            span{
-                color: white;
-            }
-            img{
-                max-height:100%; max-width:100%;
-            }
-            input[type=file]
-            {
-                position: absolute;
-                opacity: 0;
-                overflow: hidden;
-                z-index: -1;
 
-            }
-            label
-            {
-                background-color: white;
-                color: black;
-                cursor: pointer;
-                padding: 0.5rem;
-                border-radius: 0.5rem;
-                transition: all .2s ease-in-out;
-            }
-            label:hover
-            {
-                background-color: $BorderIndian;
-                font-weight: bold;
-                color: white;
-                transform: scale(1.04);
-                transform: translateZ(0);
-            }
         }
-
-        .activeimage
-        {
-            display: flex;
-            padding: 0 ;
-            outline: none;
-            justify-content: center;
-        }
-        
-        /*canvas{
-            width: 100%;
-            height: 100%;
-        }*/
 
         
     }

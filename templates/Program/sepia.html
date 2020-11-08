@@ -23,9 +23,9 @@
             <!-- Here goes the Buttons,sliders and input of program -->
             <div class="interactionmenu" id="interactionmenu">
                 <h2 class="w80">Imagen de colores a blanco y negro</h2>
-                {{TemplateSlider('Peso Rojo',0,'100','30')}}
-                {{TemplateSlider('Peso Verde','0',100,'59')}}
-                {{TemplateSlider('Peso Azul','0',100,'11')}}
+                {{TemplateSlider('Peso Rojo',0,'100','0')}}
+                {{TemplateSlider('Peso Verde','0',100,'0')}}
+                {{TemplateSlider('Peso Azul','0',100,'0')}}
             </div>
             <!-- Here shows the output of application -->
             <div class="display">
@@ -68,9 +68,9 @@
     
     </script>
     <script src="{{ url_for('static',filename='js/general.js')}}"></script>
-    <script src="{{ url_for('static',filename='js/Program/escalagrises/imageloadanddrag.js')}}"></script>
-    <script src="{{ url_for('static',filename='js/Program/escalagrises/p5.js')}}"></script>
-    <script src="{{ url_for('static',filename='js/Program/escalagrises/sketch.js')}}"></script>
+    <script src="{{ url_for('static',filename='js/Program/sepia/imageloadanddrag.js')}}"></script>
+    <script src="{{ url_for('static',filename='js/Program/sepia/p5.js')}}"></script>
+    <script src="{{ url_for('static',filename='js/Program/sepia/sketch.js')}}"></script>
   
     
 </body>
