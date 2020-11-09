@@ -257,10 +257,9 @@ body, html {
           align-items: center;
 }
 
-.application .display .ThreeContainer {
-  margin: 2rem auto;
-  width: 80%;
-  height: 80%;
+.application .display .ThreeContainerAll {
+  width: 100%;
+  height: 100%;
   background-color: #15151F;
 }
 /*# sourceMappingURL=program.css.map */
