@@ -35,7 +35,7 @@
         </div>  
     </div>
 
-    <div class="porfolio" id="Portafolio">
+    <div class="porfolio" >
         {{card('Blanco y negro','Convierte imagenes a color a blanco y negro','ic1.svg','escalagrises.html')}}
         {{card('Mejora de contraste','Arregla el contraste de tus imagenes para un acabado mas profesional','ic2.svg','sepia.html')}}
         {{card('Triangulo de Sierpinslki','Disfruta el fractal del triangulo de sierpinsky en una vista interactiva','ic3.svg','3dmodel_cube.html')}}
@@ -43,7 +43,56 @@
         {{card('Efecto Oleo','Transforma tus imagenes como si estuvieran hechas con pintura oleo','ic5.svg')}}
     </div>
 
+    <div class="gallery">
+        <div class="program">
+            <a>
+                <img src="/static/Image/DilanVideo.png" alt="">
+            </a>
+        </div>
+        <div class="program"><a>
+            <img src="/static/Image/eiffel.jpg" alt="">
+        </a></div>
+        <div class="program"><a>
+            <img src="/static/Image/Gato.jpg" alt="">
+        </a></div>
+        <div class="program"><a>
+            <img src="/static/Image/eiffel.jpg" alt="">
+        </a></div>
+        <div class="program"><a>
+            <img src="/static/Image/Gato.jpg" alt="">
+        </a></div>
+        <div class="program"><a>
+            <video muted>
+                <source src="/static/Image/DilanVideo.mov">
+           </video>
+        </a></div>
+        
+
+    </div>
     <script src ="/static/js/Home/button.js"></script>
+    <script>
+    var videos = document.querySelectorAll("video");
+
+    videos.forEach((video)=>{
+
+        video.addEventListener('loadeddata', (e) => {
+        //Video should now be loaded but we can add a second check
+            video.addEventListener('mouseover',()=>{
+                video.play();
+                
+            });
+
+            video.addEventListener('mouseout',()=>{
+                video.pause();     
+            });
+        
+        });
+
+        
+    });
+
+            
+    </script>
     
 </body>
 </html>

@@ -1,0 +1,31 @@
+Index.html
+Image
+  generalimages./(all)
+  home
+     homeimages./(all)
+  program
+     Programimages./(all)
+  design
+     Designimages./(all)
+  
+program
+  backandwhite.html
+  textrecognition.html
+CSS
+  generalcss./all
+  home
+    sass.files
+    css.files
+  program
+    sass.files
+    css.files
+JS
+  home
+    grid.js
+    buttons.js
+  program
+    image.js
+    components.js
+  
+  
+  

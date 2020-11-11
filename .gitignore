@@ -1,2 +1,4 @@
-/imageprocessing/
-Hierarchy.txt
+/static/Image
+*.mov
+/static/**/*.blend
+/static/**/*.glb
