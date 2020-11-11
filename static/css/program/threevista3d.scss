@@ -1,0 +1,29 @@
+@import "../globals";
+
+body,html{
+    height: 100%;
+}
+
+.all
+{
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.application
+{
+    display: flex;
+    flex: 1 0 0;
+    width: 100%;
+    flex-direction: row;
+    
+
+    .ThreeContainerAll {
+        width: 100%;
+        height: 100%;
+        background-color: #15151F;
+    }
+
+       
+}

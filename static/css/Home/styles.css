@@ -440,6 +440,7 @@ h2 {
   max-height: 100%;
   border-radius: 1rem;
   padding: 5px;
+  border: 2px #8C6F4D solid;
 }
 
 .gallery .program > a > img {

@@ -1,0 +1,443 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  font: inherit;
+  vertical-align: baseline;
+}
+
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+ol, ul {
+  list-style: none;
+}
+
+blockquote, q {
+  quotes: none;
+}
+
+blockquote:before, blockquote:after,
+q:before, q:after {
+  content: '';
+  content: none;
+}
+
+table {
+  border-collapse: collapse;
+  border-spacing: 0;
+}
+
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  background-color: #F8E6D0;
+  max-width: 100%;
+}
+
+html {
+  font-size: 1vw;
+}
+
+h1, h2 {
+  font-size: 1rem;
+  font-family: "Domine", "serif";
+}
+
+p, a, span, button, label {
+  font-family: "Source Sans Pro", "sans-serif";
+  font-size: 1.2rem;
+}
+
+a {
+  text-decoration: none;
+  color: #15151F;
+}
+
+button {
+  border: none;
+  text-decoration: none;
+}
+
+button:focus {
+  outline: 0;
+}
+
+header {
+  background-color: #EAD0B4;
+  height: 3rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-left: 2.8rem;
+}
+
+header img {
+  height: 80%;
+}
+
+header a {
+  margin-left: 1.1rem;
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+nav {
+  height: 3rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  padding: 0 2.8rem;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+nav a {
+  position: relative;
+}
+
+nav a:nth-child(-n+2) {
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+  margin-right: 1.1rem;
+}
+
+nav a:nth-child(3) {
+  margin-left: auto;
+  justify-self: flex-end;
+}
+
+nav a:hover {
+  font-weight: 600;
+}
+
+nav a::after {
+  content: '';
+  display: block;
+  width: 0;
+  height: 2px;
+  background: #000;
+  -webkit-transition: width .3s;
+  transition: width .3s;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+nav a::before {
+  display: block;
+  content: attr(title);
+  font-weight: 600;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+
+p.big {
+  font-size: 2rem;
+}
+
+h1 {
+  font-size: 5rem;
+}
+
+h2 {
+  font-size: 1.5rem;
+}
+
+.w100 {
+  width: 100%;
+}
+
+.w80 {
+  width: 80%;
+}
+
+.Xflexbetween {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.Xflexcenter {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.Xflexevenly {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+body, html {
+  height: 100%;
+}
+
+.all {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100%;
+}
+
+.application {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 0px;
+          flex: 1 0 0;
+  width: 100%;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.application .interactionmenu {
+  width: 30%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #15151F;
+  padding-top: 3rem;
+}
+
+.application .interactionmenu h2, .application .interactionmenu span {
+  color: white;
+}
+
+.application .interactionmenu h2 {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+.application .interactionmenu > div {
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 60%;
+  text-align: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.application .interactionmenu .slider {
+  margin-top: 1.5rem;
+  width: 100%;
+  -webkit-appearance: none;
+}
+
+.application .interactionmenu .slider:focus {
+  outline: none;
+}
+
+.application .interactionmenu .slider::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 0.5rem;
+  cursor: pointer;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  background: #ffffff;
+  border-radius: 0px;
+  border: 0px solid #010101;
+}
+
+.application .interactionmenu .slider::-moz-range-track {
+  width: 100%;
+  height: 0.5rem;
+  cursor: pointer;
+  box-shadow: none;
+  background: #ffffff;
+  border-radius: 0px;
+  border: 0px solid #010101;
+}
+
+.application .interactionmenu .slider::-webkit-slider-thumb {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border: 0px solid #ffffff;
+  -webkit-box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
+  height: 1.5rem;
+  width: 1rem;
+  background: white;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -0.5rem;
+}
+
+.application .interactionmenu .slider::-moz-range-thumb {
+  box-shadow: none;
+  border: 0px solid #ffffff;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
+  height: 1.5rem;
+  width: 1rem;
+  background: white;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -0.5rem;
+}
+
+.application .interactionmenu .slider::-moz-focus-outer {
+  border: 0;
+}
+
+.application .display {
+  width: 100%;
+  background-color: #EAD0B4;
+  /*canvas{
+            width: 100%;
+            height: 100%;
+        }*/
+}
+
+.application .display .sectiondisplay {
+  padding: 2.8rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+}
+
+.application .display .boximage {
+  width: 37%;
+  height: 18rem;
+  padding: 2.8rem 0;
+  background-color: #15151F;
+  outline: 2px dashed #fff;
+  outline-offset: -10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.application .display .boximage span {
+  color: white;
+}
+
+.application .display .boximage img {
+  max-height: 100%;
+  max-width: 100%;
+}
+
+.application .display .boximage input[type=file] {
+  position: absolute;
+  opacity: 0;
+  overflow: hidden;
+  z-index: -1;
+}
+
+.application .display .boximage label {
+  background-color: white;
+  color: black;
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  -webkit-transition: all .2s ease-in-out;
+  transition: all .2s ease-in-out;
+}
+
+.application .display .boximage label:hover {
+  background-color: #8C6F4D;
+  background-color: #8C6F4D;
+  font-weight: bold;
+  color: white;
+  -webkit-transform: scale(1.04);
+          transform: scale(1.04);
+  -webkit-transform: translateZ(0);
+          transform: translateZ(0);
+}
+
+.application .display .activeimage {
+  padding: 0;
+  outline: none;
+}
+
+.application .display .ThreeContainerAll {
+  width: 100%;
+  height: 100%;
+  background-color: #15151F;
+}
+/*# sourceMappingURL=p5imagefilter.css.map */

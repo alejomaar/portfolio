@@ -39,7 +39,7 @@
         {{card('Blanco y negro','Convierte imagenes a color a blanco y negro','ic1.svg','escalagrises.html')}}
         {{card('Mejora de contraste','Arregla el contraste de tus imagenes para un acabado mas profesional','ic2.svg','sepia.html')}}
         {{card('Triangulo de Sierpinslki','Disfruta el fractal del triangulo de sierpinsky en una vista interactiva','ic3.svg','3dmodel_cube.html')}}
-        {{card('Arte ASCII','Transforma tus imagenes a una composicion hecha con letras ','ic4.svg')}}
+        {{card('Arte ASCII','Transforma tus imagenes a una composicion hecha con letras ','ic4.svg','imagenyvideo.html')}}
         {{card('Efecto Oleo','Transforma tus imagenes como si estuvieran hechas con pintura oleo','ic5.svg')}}
     </div>
 
@@ -56,13 +56,13 @@
             <img src="/static/Image/Gato.jpg" alt="">
         </a></div>
         <div class="program"><a>
-            <img src="/static/Image/eiffel.jpg" alt="">
+            <img src="/static/Image/Aguila.jpg" alt="">
         </a></div>
         <div class="program"><a>
-            <img src="/static/Image/Gato.jpg" alt="">
+            <img src="/static/Image/Gorila.jpg" alt="">
         </a></div>
         <div class="program"><a>
-            <video muted>
+            <video muted autoplay>
                 <source src="/static/Image/DilanVideo.mov">
            </video>
         </a></div>
@@ -70,29 +70,7 @@
 
     </div>
     <script src ="/static/js/Home/button.js"></script>
-    <script>
-    var videos = document.querySelectorAll("video");
-
-    videos.forEach((video)=>{
-
-        video.addEventListener('loadeddata', (e) => {
-        //Video should now be loaded but we can add a second check
-            video.addEventListener('mouseover',()=>{
-                video.play();
-                
-            });
-
-            video.addEventListener('mouseout',()=>{
-                video.pause();     
-            });
-        
-        });
-
-        
-    });
-
-            
-    </script>
+    
     
 </body>
 </html>
