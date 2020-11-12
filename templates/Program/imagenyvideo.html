@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <base href="/"> -->
-    <link rel="stylesheet" href="{{ url_for('static',filename='css/Program/program.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/Program/gallery.css')}}">
     <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400;500;600;700&display=swap" rel="stylesheet">     
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" rel="stylesheet"> 
     
@@ -15,21 +15,91 @@
 </head>
 <body>
 
+    {% include 'navbar.html' %}
 
+    <div class="gallery" id="gallery">
+        <img  src="/static/Image/paisaje3tonos.png" alt="" name="resizable">
+        <img  src="/static/Image/cartagena.jpg" alt=""name="resizable">
+        <img  src="/static/Image/carro1.png" alt="" name="resizable">
+        <img  src="/static/Image/carro2.png" alt="" >
+        <img  src="/static/Image/carro3.png" alt="" name="resizable">
+        <img  src="/static/Image/victoriasamotracia.png" alt="">
+        <img  src="/static/Image/leonblueprint.jpg" alt=""  >
 
-    <div class="all">
-        {% include 'navbar.html' %}
-        <div class="application">
-            <!-- Here shows the output of application -->
-            <div class="display">
-                <div class="ThreeContainerAll" id="ThreeContainer">
+        
+        <video class="over" muted autoplay loop name="resizable">
+            <source src="/static/Image/playa.mp4" >
+        </video>
+        <img  src="/static/Image/matthew.png" alt="" name="resizable">
 
-                </div>
-            </div>
-        </div>
+        <video class="over" muted autoplay loop name="resizable">
+            <source src="/static/Image/DilanVideo.mov" >
+        </video>
+        <video class="over" muted autoplay loop name="resizable">
+            <source src="/static/Image/Barco.mov" >
+        </video>
+        <img  src="/static/Image/CreacionAdan .png" alt="">
+
+        <video class="over" muted autoplay loop name="resizable">
+            <source src="/static/Image/BouncyBall.mp4" >
+        </video>
+        <video class="over" muted autoplay loop name="resizable">
+            <source src="/static/Image/Fenix.mp4" >
+        </video>
+        <video class="over" muted autoplay loop name="resizable">
+            <source src="/static/Image/iman.mov" >
+        </video>
+        <video class="over" muted autoplay loop name="resizable">
+            <source src="/static/Image/montanarusa.mov" >
+        </video>
+        <video class="over" muted autoplay loop name="resizable">
+            <source src="/static/Image/particles.mov" >
+        </video>
+        <video class="over" muted autoplay loop name="resizable">
+            <source src="/static/Image/Ballons.mov" >
+        </video>
+        <video class="over" muted autoplay loop name="resizable">
+            <source src="/static/Image/mano.mp4"  >
+        </video>
+        <video class="over" muted autoplay loop >
+            <source src="/static/Image/infinito.mp4" >
+        </video>
+        <video class="over" muted autoplay loop  >
+            <source src="/static/Image/bailarina.mp4" >
+        </video>
+
     </div>
+        
     
     <script src="{{ url_for('static',filename='js/general.js')}}"></script>
+    <script>
+        window.addEventListener("load",function(){
+            //var gallery = $("gallery");
+            //var multimedia = gallery.querySelectorAll("img,video");
+            var multimedia = document.getElementsByName("resizable");
+
+            multimedia.forEach((item)=>{
+               
+                var width = item.offsetWidth;
+                width =  Math.floor(Math.random() * 0.4*width + 0.6*width);
+                width= width.toString();
+                width+="px";
+                
+                item.style.width=width;
+             });
+
+            window.addEventListener('resize', ()=>{
+                multimedia.forEach((item)=>{
+                    item.removeAttribute("style")
+                });
+            });
+
+
+        });
+
+
+        
+    </script>
     
     
 </body>

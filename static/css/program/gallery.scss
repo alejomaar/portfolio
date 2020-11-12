@@ -1,0 +1,56 @@
+@import "../globals";
+
+.gallery{
+    width: 100%;
+    padding: 1rem 2rem;
+    display: flex;
+    flex-wrap: wrap;
+    line-height: 0;
+    justify-content: center;
+    align-items: center;
+    background-color: $Cinder;
+
+    >img,video{
+        height: 13rem;
+        object-fit: cover;
+        object-position: center;
+        margin:0.8rem;
+        border-radius: 1rem;
+        max-width: 100%;
+
+        border: 3px solid transparent;
+
+    }
+    
+    
+
+    >img:hover,>video:hover{
+        border: 3px $IndianW solid;
+    }
+    
+}
+
+.gallery::after{
+    content: '';
+    flex-grow: 100000;
+}
+
+@media screen and (max-width:1000px) {
+    html,body{
+        font-size: 2vw;
+    }
+    .gallery{
+        >img,video{
+            margin:0.2rem;
+            height: 10rem;
+        }
+    }
+}
+
+@media screen and (max-width:700px) {
+    .gallery{
+        >img,video{
+            height: 30rem;
+        }
+    }
+}
