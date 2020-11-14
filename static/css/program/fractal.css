@@ -216,61 +216,156 @@ h2 {
           justify-content: space-evenly;
 }
 
-.gallery {
-  width: 100%;
-  padding: 1rem 2rem;
+body, html {
+  height: 100%;
+}
+
+.all {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
-  line-height: 0;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  height: 100%;
+}
+
+.application {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-flex: 1;
+      -ms-flex: 1 0 0px;
+          flex: 1 0 0;
+  width: 100%;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+}
+
+.application .interactionmenu {
+  width: 30%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #15151F;
+  padding-top: 3rem;
+}
+
+.application .interactionmenu h2, .application .interactionmenu span {
+  color: white;
+}
+
+.application .interactionmenu h2 {
+  text-align: center;
+  font-weight: bold;
+  margin-bottom: 2rem;
+}
+
+.application .interactionmenu > div {
+  margin: 0 auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 60%;
+  text-align: center;
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.application .interactionmenu .slider {
+  margin-top: 1.5rem;
+  width: 100%;
+  -webkit-appearance: none;
+}
+
+.application .interactionmenu .slider:focus {
+  outline: none;
+}
+
+.application .interactionmenu .slider::-webkit-slider-runnable-track {
+  width: 100%;
+  height: 0.5rem;
+  cursor: pointer;
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  background: #ffffff;
+  border-radius: 0px;
+  border: 0px solid #010101;
+}
+
+.application .interactionmenu .slider::-moz-range-track {
+  width: 100%;
+  height: 0.5rem;
+  cursor: pointer;
+  box-shadow: none;
+  background: #ffffff;
+  border-radius: 0px;
+  border: 0px solid #010101;
+}
+
+.application .interactionmenu .slider::-webkit-slider-thumb {
+  -webkit-box-shadow: none;
+          box-shadow: none;
+  border: 0px solid #ffffff;
+  -webkit-box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
+  height: 1.5rem;
+  width: 1rem;
+  background: white;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -0.5rem;
+}
+
+.application .interactionmenu .slider::-moz-range-thumb {
+  box-shadow: none;
+  border: 0px solid #ffffff;
+  box-shadow: 0px 10px 10px rgba(0, 0, 0, 0.25);
+  height: 1.5rem;
+  width: 1rem;
+  background: white;
+  cursor: pointer;
+  -webkit-appearance: none;
+  margin-top: -0.5rem;
+}
+
+.application .interactionmenu .slider::-moz-focus-outer {
+  border: 0;
+}
+
+.application .display {
+  width: 100%;
+  background-color: #EAD0B4;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.application .display .ContainerSketch {
+  margin: 0 auto;
+  width: 80%;
+  height: 80%;
   background-color: #15151F;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
 }
-
-.gallery > img, .gallery video {
-  height: 13rem;
-  -o-object-fit: cover;
-     object-fit: cover;
-  -o-object-position: center;
-     object-position: center;
-  margin: 0.8rem;
-  border-radius: 1rem;
-  max-width: 100%;
-  border: 3px solid transparent;
-}
-
-.gallery > img:hover, .gallery > video:hover {
-  border: 3px #F8E6D0 solid;
-}
-
-.gallery::after {
-  content: '';
-  -webkit-box-flex: 100000;
-      -ms-flex-positive: 100000;
-          flex-grow: 100000;
-}
-
-@media screen and (max-width: 900px) {
-  html, body {
-    font-size: 2vw;
-  }
-  .gallery > img, .gallery video {
-    margin: 0.2rem;
-    height: 10rem;
-  }
-}
-
-@media screen and (max-width: 700px) {
-  .gallery > img, .gallery video {
-    width: 80%;
-    height: auto;
-  }
-}
-/*# sourceMappingURL=gallery.css.map */
+/*# sourceMappingURL=fractal.css.map */

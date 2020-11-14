@@ -25,6 +25,24 @@
         <img  src="/static/Image/carro3.png" alt="" name="resizable">
         <img  src="/static/Image/victoriasamotracia.png" alt="">
         <img  src="/static/Image/leonblueprint.jpg" alt=""  >
+        <img  src="/static/Image/leon.jpg" alt=""  >
+        <img  src="/static/Image/paisajefantastico.jpg" alt="" name="resizable" >
+        <img  src="/static/Image/esfinge.png" alt="" name="resizable" >
+        <img  src="/static/Image/Browser.jpg" alt="" name="resizable" >
+        <img  src="/static/Image/bar1.png" alt="" name="resizable" >
+        <img  src="/static/Image/bar2.png" alt="" name="resizable" >
+        <img  src="/static/Image/naveespacial.jpeg" alt=""  >
+        <img  src="/static/Image/llanta.png" alt=""  >
+        <img  src="/static/Image/mansion.png" alt="" name="resizable" >
+        <img  src="/static/Image/bodegoncarbon.jpg" alt=""  >
+        <img  src="/static/Image/bodegonlapiz.jpg" alt=""  >
+        <img  src="/static/Image/coliseoromano.jpg" alt=""  >
+        <img  src="/static/Image/cubetexture.jpg" alt="" >
+        <img  src="/static/Image/solidos.jpg" alt="" name="resizable" >
+        <img  src="/static/Image/solidosbodegon.jpg" alt="" >
+        
+
+
 
         
         <video class="over" muted autoplay loop name="resizable">
@@ -32,7 +50,7 @@
         </video>
         <img  src="/static/Image/matthew.png" alt="" name="resizable">
 
-        <video class="over" muted autoplay loop name="resizable">
+        <video class="over" muted autoplay loop >
             <source src="/static/Image/DilanVideo.mov" >
         </video>
         <video class="over" muted autoplay loop name="resizable">
@@ -74,10 +92,9 @@
     <script src="{{ url_for('static',filename='js/general.js')}}"></script>
     <script>
         window.addEventListener("load",function(){
-            //var gallery = $("gallery");
-            //var multimedia = gallery.querySelectorAll("img,video");
+            //get multimedia content 
             var multimedia = document.getElementsByName("resizable");
-
+            //Set aleatory width for each element in multidia
             multimedia.forEach((item)=>{
                
                 var width = item.offsetWidth;
@@ -87,7 +104,7 @@
                 
                 item.style.width=width;
              });
-
+             //Remove aleatority width from multimedia array
             window.addEventListener('resize', ()=>{
                 multimedia.forEach((item)=>{
                     item.removeAttribute("style")
