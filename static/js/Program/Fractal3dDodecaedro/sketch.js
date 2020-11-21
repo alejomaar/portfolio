@@ -1,14 +1,103 @@
-//All this code depend to Imageloadanddrag.js and p5.js file 
-// startSketch is called from Imageloadanddrag.js in selectimage function
+class Dodecaedro {
+  constructor(factor=1)
+  {
+    this.a = (1 + Math.sqrt(5)) / 2; // numero aureo
+    this.i = 1 / this.a;
+    this.vertex; 
+    this.face; 
+    this.factor=factor;
+    this.setVertex();
+    this.scale(factor);
+    //this.setFace(); 
+  }
+  setVertex()
+  {
+    this.vertex= [
+      [this.i,0,this.a],
+      [-this.i,0,this.a],
+      [-this.i,0,-this.a],
+      [this.i,0,-this.a],
+
+      [this.a,this.i,0],
+      [this.a,-this.i,0],
+      [-this.a,-this.i,0],
+      [-this.a,this.i,0],
+
+      [0,this.a,this.i],
+      [0,this.a,-this.i],
+      [0,-this.a,-this.i],
+      [0,-this.a,this.i],
+
+      [1,1,1],
+      [1,-1,1],
+      [-1,-1,1],
+      [-1,1,1],
+
+      [-1,1,-1],
+      [1,1,-1],
+      [1,-1,-1],
+      [-1,-1,-1]
+    ]
+  }
+  get getFace()
+  { 
+    var vertex = this.vertex;
+    var face=[
+      [vertex[19],vertex[10],vertex[11],vertex[14],vertex[6]],
+      [vertex[2],vertex[19],vertex[6],vertex[7],vertex[16]],
+      [vertex[18],vertex[10],vertex[19],vertex[2],vertex[3]],
+      [vertex[12],vertex[8],vertex[15],vertex[1],vertex[0]],
+      [vertex[2],vertex[16],vertex[9],vertex[17],vertex[3]],
+      [vertex[4],vertex[17],vertex[9],vertex[8],vertex[12]],
+      [vertex[14], vertex[1] ,vertex[15], vertex[7], vertex[6]], //7
+      [vertex[0] ,vertex[13], vertex[5], vertex[4],vertex[12]], //8
+	    [vertex[7], vertex[15], vertex[8], vertex[9], vertex[16]], //9
+	    [vertex[11], vertex[10], vertex[18], vertex[5], vertex[13]], //10
+	    [vertex[14], vertex[11], vertex[13], vertex[0], vertex[1]], //11
+	    [vertex[3], vertex[17], vertex[4], vertex[5], vertex[18]] //12
+
+    ]
+    return face;
+  } 
+  scale(factor)
+  {
+    //Para cada vertice
+    this.vertex=this.vertex.map(vertex=>{
+      //Para cada valor del vertice 
+      return vertex.map(value=>{
+          return value*factor;
+      });
+    });
+  }
+
+  move(Dx,Dy,Dz)
+  {
+    //Para cada vertice
+    this.vertex=this.vertex.map(vertex=>{
+      //Move cada valor del vertice 
+      vertex[0]+=Dx;
+      vertex[1]+=Dy;
+      vertex[2]+=Dz;
+      return vertex;
+    });
+  }
+  subDodecaedro(indexVertex)
+  {
+    var scalenew= 0.2763932;
+    var smallDodecaedro = new Dodecaedro(this.factor*scalenew);
+    var smallVertexMove = smallDodecaedro.vertex[indexVertex];
+    var bigVertexMove =this.vertex[indexVertex];
+    smallDodecaedro.move(bigVertexMove[0]-smallVertexMove[0],bigVertexMove[1]-smallVertexMove[1],bigVertexMove[2]-smallVertexMove[2]);
+    return smallDodecaedro;
+  }
+}
+//All this code depend to p5.js file 
 var myp5;
+
 function startSketch(){
   var sketch = function( p ) {
-    var HexagonX = [];
-    var HexagonY = [];
-
+    var D = new Dodecaedro(120);
     var subdivition=2;
-    var ScaleFactor=0.333;
-    
 
     p.setup = function() {
         
@@ -18,114 +107,101 @@ function startSketch(){
       var Heigth = container.offsetHeight; 
 
       //Canvas
-      var Canvas =p.createCanvas(Width, Heigth);
+      var Canvas =p.createCanvas(Width, Heigth,p.WEBGL);
       Canvas =Canvas.parent("ContainerSketch");
       //Background and color
-      p.noStroke();
       p.colorMode(p.HSB);
-      p.background(p.color(240, 19,10));
+      p.background(100);
+      p.noStroke();
 
-      //Set vertex of tris 
-      HexagonVertex();
-      p.noLoop();
+      p.frameRate(10);
+      
+      //p.noLoop();
 
     };
     
 
     p.draw = function() { 
-      console.log("entre");
-      p.background(p.color(240, 19,10  ));
-      PaintHexagon(HexagonX,HexagonY,subdivition);       
+      p.rotateX(p.frameCount * 0.0001);
+      p.rotateY(p.frameCount * 0.015);
+
+      let locX = 150*p.mouseX/p.width;
+      //console.log(locX+" "+p.width)
+      p.background(100);
+
+      p.ambientLight(360,0,100);
+      p.directionalLight(255, 0, 0, 0.25, 0.25, 0);
+      p.pointLight(360,0,100,0, 100,0);
+      //p.pointLight(360,0,100,100, 100,50);
+      p.pointLight(360,0,100,p.cos(p.TWO_PI*locX), 0,p.sin(p.TWO_PI*locX));
+      p.specularMaterial(250);  
+      /*;
+      ;
+      */
+  
+      
+      /*p.ambientLight(360, 0, 100);
+      ;*/
+      
+      
+      //p.camera(0,0,p.height*0.5);
+      paintDodecaedro(D,180,subdivition);
+      
+      
       
     };
 
-
-    function HexagonVertex()
+    function paintDodecaedro(Dodecaedro,color,iter)
     {
-      //Default vertex
-      let iter=0;
-      let anglemin=Math.PI*2/6;
-      let angle=anglemin;
-      let radius = p.min(p.height,p.width)*0.4;
-      //Position of Hexagon 
-      PosX = p.width*0.5;
-      PosY = p.height*0.5;
-      console.log("X: "+PosX+" y: "+PosY);
-      //Create Hexagon
-      for(iter=0;iter<=5;iter++)
-      {
-        HexagonX.push(radius*Math.cos(angle));
-        HexagonY.push(radius*Math.sin(angle));
-        angle+=anglemin;
-      }
-      //Move Hexagon to center
-      for(iter=0;iter<=5;iter++)
-      {
-        HexagonX[iter]+=PosX;
-        HexagonY[iter]+=PosY;
-      }
-    }
-
-    function PaintHexagon(newHexX,newHexY,iter)
-    {
-      //cycle through all vertex to paint
       if(iter==1)
       {
-        p.fill(p.color(p.random(300,360), 100, 100));
-        p.beginShape();
-        for(let iter=0;iter<=5;iter++)
+        
+        
+        Dodecaedro.getFace.forEach((Face,index) => { 
+          var hue =  (color +Rhue())%360;
+          var value = Rcolor(index,12);
+          //console.log(rcolor);
+          p.ambientMaterial(hue, 80, value);
+          p.beginShape();
+          p.vertex(Face[0][0],Face[0][1],Face[0][2]);
+          p.vertex(Face[1][0],Face[1][1],Face[1][2]);
+          p.vertex(Face[2][0],Face[2][1],Face[2][2]);
+          p.vertex(Face[3][0],Face[3][1],Face[3][2]);
+          p.vertex(Face[4][0],Face[4][1],Face[4][2]);
+          p.endShape();
+        });
+      }else{    
+        var rangecolor= 100/(subdivition-iter+1);
+        for (var DodeIndex=0;DodeIndex<20;DodeIndex++)
         {
-          p.vertex(newHexX[iter],newHexY[iter]);
+          var newD= Dodecaedro.subDodecaedro(DodeIndex);
+          var newcolor = color +DodeIndex*rangecolor/19;
+          
+          paintDodecaedro(newD,newcolor,iter-1);
+
+         
+
         }
-        p.endShape();
-      }else{
-        let HexNew0x = NewHex(newHexX,0);
-        let HexNew0y = NewHex(newHexY,0);
-        let HexNew1x = NewHex(newHexX,1);
-        let HexNew1y = NewHex(newHexY,1);
-        let HexNew2x = NewHex(newHexX,2);
-        let HexNew2y = NewHex(newHexY,2);
-        let HexNew3x = NewHex(newHexX,3);
-        let HexNew3y = NewHex(newHexY,3);
-        let HexNew4x = NewHex(newHexX,4);
-        let HexNew4y = NewHex(newHexY,4);
-        let HexNew5x = NewHex(newHexX,5);
-        let HexNew5y = NewHex(newHexY,5);
-        PaintHexagon(HexNew0x,HexNew0y,iter-1);
-        PaintHexagon(HexNew1x,HexNew1y,iter-1);
-        PaintHexagon(HexNew2x,HexNew2y,iter-1);
-        PaintHexagon(HexNew3x,HexNew3y,iter-1);
-        PaintHexagon(HexNew4x,HexNew4y,iter-1);
-        PaintHexagon(HexNew5x,HexNew5y,iter-1);
+        
+
       }
-           
+ 
     }
-    //Scale hexagon point 
-    //Hex: Array of vertex of Hexagone
-    //Vertex: Vertex to Adjust
-    function NewHex(Hex,VertexIndex){
-      //let HexOld = Hex.slice();
-      let CenterHexOld = center(Hex);
-      
-      var HexOld =Hex.map((vertex)=>{
-        return vertex-CenterHexOld;
-      });
 
-      var HexNew =HexOld.map((vertex)=>{
-        return vertex*ScaleFactor;
-      });
+    function Rhue()
+    {
+      return p.map(p.mouseX,0,p.width,0,100);
+    }
 
-      var HexNewMove =HexNew.map((vertex)=>{
-        return vertex-HexNew[VertexIndex]+Hex[VertexIndex];
-      });
+    function Rcolor(value,period)
+    {
+      var random= p.cos(p.PI*value/period);
       
-   
-      return HexNewMove;
+      return p.map(random,-1,1,20,100);
     }
-    function center(Hex){
-      return (Hex[0]+Hex[1]+Hex[2]+Hex[3]+Hex[4]+Hex[5])/6;
-    }
-    
+
+
+ 
     p.sliderMove = function () {
       //Get elements of dom 
       let Sliders = document.getElementsByName("T_Slider");
@@ -139,17 +215,19 @@ function startSketch(){
     p.windowResized = function() {
       var Width = $("ContainerSketch").offsetWidth;
       var Heigth = $("ContainerSketch").offsetHeight;
-      HexagonX = [];
-      HexagonY = [];
-      HexagonVertex();
       p.resizeCanvas(Width, Heigth);
-      p.redraw(1);
+      //p.redraw(1);
     }
 
     
   };
   myp5 = new p5(sketch);
 }
+
+  
+
+
+
 
 
 

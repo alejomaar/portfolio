@@ -2,3 +2,4 @@
 *.mov
 /static/**/*.blend
 /static/**/*.glb
+.vscode
