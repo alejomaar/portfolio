@@ -1,6 +1,9 @@
-from flask import Flask, render_template, request, make_response
-import jsonpickle
+from flask import Flask, render_template, make_response, request
+import  PIL
+from PIL import Image
+import numpy as np
 import cv2
+
 #from edge import edges
 
 
@@ -32,6 +35,24 @@ def edges_image():
     response.headers['Content-Type'] = 'image/png'
     
     return response
+
+@app.route('/edgesnew')
+def edgesnew():
+    return render_template('program/PyEdges.html')
+
+@app.route('/edgesnewpost',methods=['POST'])
+def edgesnewpost():
+    if request.method == 'POST':
+        #imageload = request.files['picture'];
+
+        img = PIL.Image.open(request.files['picture'].stream)
+        opencvImage = cv2.cvtColor(np.array(img), cv2.COLOR_RGB2BGR)
+
+        
+
+        #return opencvImage.__class__.__name__
+        #return render_template('program/PyEdges.html')
+
 
 if __name__ == '__main__':
     app.run(debug=True)

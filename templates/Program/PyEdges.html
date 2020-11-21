@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- <base href="/"> -->
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/program/p5imagefilter.css')}}">
+    <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400;500;600;700&display=swap" rel="stylesheet">     
+    <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" rel="stylesheet"> 
+    
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@2.0.0/dist/tf.min.js"></script> -->
+
+    <title>Document</title>
+</head>
+<body>
+
+
+
+    <div class="all">
+        {% include 'navbar.html' %}
+        <div class="application">
+            
+            <!-- Here shows the output of application -->
+            <div class="display">
+                <div class="sectiondisplay" id="sectiondisplay">
+                    <div class="boximage" id="BoxInputImg">
+                        <span>Arrastra y suelta tu imagen </span>
+                        <span>o</span>
+                        <form action="/edgesnewpost" method="POST" id="form" enctype="multipart/form-data">
+                            <input name="picture" type="file" id="file" accept="image/*" onchange="FileSelected (this)">
+                            <label for="file">Elige un archivo</label>
+                        </form>
+                        <img id="InputImg">
+                    </div>
+                    <div class="boximage" id="BoxOutputImg">
+                        <span id="TextOutputImg">Imagen de salida </span>
+                        <img id="OutputImg">
+                    </div>
+                </div> 
+            </div>
+        </div>
+    </div>
+    
+
+    <script src="{{ url_for('static',filename='js/general.js')}}"></script>
+    <script src="{{ url_for('static',filename='js/Program/PyEdges/imageloadanddrag.js')}}"></script>
+    <script src="{{ url_for('static',filename='js/Program/PyEdges/p5.js')}}"></script>
+    <script src="{{ url_for('static',filename='js/Program/PyEdges/sketch.js')}}"></script>
+    <script>
+    var file = $("file");
+    file.onchange = function() {
+        //let data= file.files[0];
+        //let url = window.URL.createObjectURL(data);
+        document.getElementById("form").submit();
+    };
+    </script>
+    
+</body>
+</html>
