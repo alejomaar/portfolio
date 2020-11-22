@@ -3,12 +3,15 @@ import  PIL
 from PIL import Image
 import numpy as np
 import cv2
+import os
+from io import BytesIO
+import base64
 
 #from edge import edges
 
 
 app =Flask(__name__)
-
+app.config['UPLOAD_FOLDER']= os.path.join('static','Image')
 
 @app.route('/')
 def home():
@@ -33,8 +36,10 @@ def edges_image():
     retval, buffer = cv2.imencode('.png',img)
     response = make_response(buffer.tobytes())
     response.headers['Content-Type'] = 'image/png'
+
+    return render_template('edgeimg.html' )
     
-    return response
+    #return response
 
 @app.route('/edgesnew')
 def edgesnew():
@@ -43,15 +48,21 @@ def edgesnew():
 @app.route('/edgesnewpost',methods=['POST'])
 def edgesnewpost():
     if request.method == 'POST':
-        #imageload = request.files['picture'];
-
         img = PIL.Image.open(request.files['picture'].stream)
         opencvImage = cv2.cvtColor(np.array(img), cv2.COLOR_RGB2BGR)
 
-        
+        imgedges = cv2.resize(opencvImage,(1200,600))
+        img= cv2.Canny(imgedges,80,200)
+    
+        retval, buffer = cv2.imencode('.png',img)
+        response = make_response(buffer.tobytes())
+        response.headers['Content-Type'] = 'image/png'
 
-        #return opencvImage.__class__.__name__
-        #return render_template('program/PyEdges.html')
+        return response
+
+        #return im_b64.__class__.__name__
+
+      
 
 
 if __name__ == '__main__':

@@ -28,6 +28,7 @@
                         <span>o</span>
                         <form action="/edgesnewpost" method="POST" id="form" enctype="multipart/form-data">
                             <input name="picture" type="file" id="file" accept="image/*" onchange="FileSelected (this)">
+                            <input type="hidden" id="urlimage" name="urlimage" value="">
                             <label for="file">Elige un archivo</label>
                         </form>
                         <img id="InputImg">
@@ -49,8 +50,12 @@
     <script>
     var file = $("file");
     file.onchange = function() {
-        //let data= file.files[0];
-        //let url = window.URL.createObjectURL(data);
+        let data= file.files[0];
+        let url = window.URL.createObjectURL(data);
+
+        var urlimage = $("urlimage");
+        urlimage.value = url;
+
         document.getElementById("form").submit();
     };
     </script>
