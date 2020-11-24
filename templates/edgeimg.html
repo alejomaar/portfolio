@@ -11,8 +11,9 @@
 </head>
 <body>
     {% include 'navbar.html' %}
-    <p></p>
-    <img src="{{img}}" alt="">
+    <p>{{filelocation}}</p>
+    <img src="static/userimageload/{{filelocation}}" alt="">
+    <img src="{{ url_for('edges_image',filename=filelocation) }}" alt="">
     
 </body>
 </html>

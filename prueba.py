@@ -1,17 +1,18 @@
-from flask import Flask, render_template, make_response, request
+from flask import Flask, render_template, request,make_response
 import  PIL
 from PIL import Image
 import numpy as np
 import cv2
 import os
+import math
 from io import BytesIO
-import base64
 
 #from edge import edges
 
 
 app =Flask(__name__)
-app.config['UPLOAD_FOLDER']= os.path.join('static','Image')
+app.config['UPLOAD_FOLDER']= os.path.join('static','userimageload')
+ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 
 @app.route('/')
 def home():
@@ -27,40 +28,64 @@ def program(name='escalagrises.html'):
 def edges():
     return render_template('edgeimg.html')
 
-@app.route('/edges_image')
-def edges_image():
-    img = cv2.imread("static/Image/leonblueprint.jpg")
-    imgedges = cv2.resize(img,(1200,600))
-    img= cv2.Canny(imgedges,80,200)
+GeneralImg=None
+
+@app.route('/edges_image/<string:filename>')
+def edges_image(filename):
+    route = "static/userimageload/"+filename
     
-    retval, buffer = cv2.imencode('.png',img)
+    img = cv2.imread(route)
+    factor = 900/img.shape[0]
+    img = cv2.resize(img,(0,0), fx=factor,fy=factor)
+    img = cv2.bilateralFilter(img,9,300,300)
+
+
+    gray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
+    gray = cv2.medianBlur(gray,7)
+    
+    kernel=cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(6,6))
+    edges = cv2.adaptiveThreshold(gray, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C,cv2.THRESH_BINARY,11,5)
+    edges = cv2.morphologyEx(edges, cv2.MORPH_OPEN, kernel)
+
+    color = ImgPosterized(img)
+    color = Binarized(color,edges)
+    #cartoon = cv2.bitwise_and(color,color,mask=edges)
+    
+    success, buffer = cv2.imencode('.png',color)
     response = make_response(buffer.tobytes())
     response.headers['Content-Type'] = 'image/png'
-
-    return render_template('edgeimg.html' )
-    
-    #return response
+    #return render_template('edgeimg.html' )
+    #return route
+    return response
 
 @app.route('/edgesnew')
 def edgesnew():
     return render_template('program/PyEdges.html')
 
+
+
 @app.route('/edgesnewpost',methods=['POST'])
 def edgesnewpost():
     if request.method == 'POST':
-        img = PIL.Image.open(request.files['picture'].stream)
-        opencvImage = cv2.cvtColor(np.array(img), cv2.COLOR_RGB2BGR)
+        
+        file = request.files['picture']
+        file.save(os.path.join("static/userimageload", file.filename))
+        #return file.filename
+        return render_template('edgeimg.html',filelocation=file.filename )
 
-        imgedges = cv2.resize(opencvImage,(1200,600))
-        img= cv2.Canny(imgedges,80,200)
-    
-        retval, buffer = cv2.imencode('.png',img)
-        response = make_response(buffer.tobytes())
-        response.headers['Content-Type'] = 'image/png'
+def ImgPosterized(img):
+    return 32*np.floor(img/32)
 
-        return response
+def Binarized(img,mask):
+    img[mask==0]=(img[mask==0]*0.3+255*0.7)
+    return img
 
-        #return im_b64.__class__.__name__
+
+
+
+        
+
+
 
       
 

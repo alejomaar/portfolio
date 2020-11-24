@@ -1,12 +1,19 @@
-import  PIL
-from PIL import Image
-import cv2
+import numpy as np
+import math
+import sys
 
-def edges():
-    img = cv2.imread("static/Image/esfinge.png")
-    imgedges = cv2.resize(img,(1200,600))
-    imgedges= cv2.Canny(imgedges,40,200)
-    imgedges = cv2.imencode('.jpg',imgedges)[1].tobytes();
-    return imgedges
+
+def aprox(x):
+    return x==255
+
+a= np.array([255,126,30,255,25], dtype=np.uint8)
+a2= np.array([10,20,30,24,25], dtype=np.uint8)
+#b=np.where(a==255)[0]
+a2[a==255]=0
+print(a2)
+
+
+
+
 
     
