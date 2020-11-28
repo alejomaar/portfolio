@@ -26,16 +26,14 @@
                     <div class="boximage" id="BoxInputImg">
                         <span>Arrastra y suelta tu imagen </span>
                         <span>o</span>
-                        <form action="/edgesnewpost" method="POST" id="form" enctype="multipart/form-data">
-                            <input name="picture" type="file" id="file" accept="image/*" onchange="FileSelected (this)">
-                            <input type="hidden" id="urlimage" name="urlimage" value="">
+                        <form action="/edgesnew" method="POST" id="form" enctype="multipart/form-data"  >
+                            <input name="picture" type="file" id="file" accept="image/*" >
                             <label for="file">Elige un archivo</label>
+                            <input id="auxiliar"type="submit" value="dsfs">
                         </form>
-                        <img id="InputImg">
                     </div>
                     <div class="boximage" id="BoxOutputImg">
                         <span id="TextOutputImg">Imagen de salida </span>
-                        <img id="OutputImg">
                     </div>
                 </div> 
             </div>
@@ -44,20 +42,53 @@
     
 
     <script src="{{ url_for('static',filename='js/general.js')}}"></script>
-    <script src="{{ url_for('static',filename='js/Program/PyEdges/imageloadanddrag.js')}}"></script>
-    <script src="{{ url_for('static',filename='js/Program/PyEdges/p5.js')}}"></script>
-    <script src="{{ url_for('static',filename='js/Program/PyEdges/sketch.js')}}"></script>
     <script>
-    var file = $("file");
-    file.onchange = function() {
-        let data= file.files[0];
-        let url = window.URL.createObjectURL(data);
+    $("form").addEventListener('submit', (e)=>{
+        e.preventDefault();
 
-        var urlimage = $("urlimage");
-        urlimage.value = url;
+        fetch('/edgesnew',{
+            method: 'POST',
+            body: new FormData($("form"))
+        }).then(res =>res.json())
+        .then(data =>{
+            //console.log(data.locationOld);
+            NewImgStyle(data.locationOld,data.locationNew);
+        })
 
-        document.getElementById("form").submit();
+        function NewImgStyle(locationOld,locationNew)
+        {
+            //Get Box container of images 
+            var BoxInputOff =$("BoxInputImg");
+            var BoxOutputOff =$("BoxOutputImg");
+            //Remove all children inside of box 
+            BoxInputOff.textContent = '';
+            BoxOutputOff.textContent = '';
+            //Set new style when image is active 
+            BoxInputOff.classList.add("activeimage");
+            BoxOutputOff.classList.add("activeimage");
+
+            //Set image preview into BoxInput
+            var imgnode = document.createElement("img");
+            imgnode.src = locationOld;
+
+            //Set image preview into BoxInput
+            var imgnode2 = document.createElement("img");
+            imgnode2.src = locationNew;
+            
+            BoxInputOff.appendChild(imgnode);
+            BoxOutputOff.appendChild(imgnode2);
+            
+        }
+
+    })    
+
+    $("file").onchange = function() {
+        
+        $("auxiliar").click();
     };
+
+
+    
     </script>
     
 </body>

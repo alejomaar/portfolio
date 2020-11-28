@@ -24,12 +24,7 @@ BoxInputImg.addEventListener('drop',(e)=>{
 })
 
 //This function is called after to click (Select file) (NO MOUSE DROP)
-function FileSelected (file)
-{
-    selectImage(file.files[0]);
-} 
-
-function selectImage(url)
+function FileSelected ()
 {
     //Get Box container of images 
     var BoxInputOff =$("BoxInputImg");
@@ -38,6 +33,11 @@ function selectImage(url)
     //Remove all children inside of box 
     BoxInputOff.textContent = '';
     BoxOutputOff.textContent = '';
+} 
+
+function selectImage(url)
+{
+    
 
     //Set new style when image is active 
     BoxInputOff.classList.add("activeimage");

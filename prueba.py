@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request,make_response
+from flask import Flask, render_template, request,make_response,jsonify
 import  PIL
 from PIL import Image
 import numpy as np
@@ -58,36 +58,50 @@ def edges_image(filename):
     #return route
     return response
 
-@app.route('/edgesnew')
-def edgesnew():
-    return render_template('program/PyEdges.html')
 
 
-
-@app.route('/edgesnewpost',methods=['POST'])
+@app.route('/edgesnew',methods=['POST','GET'])
 def edgesnewpost():
     if request.method == 'POST':
         
-        file = request.files['picture']
-        file.save(os.path.join("static/userimageload", file.filename))
-        #return file.filename
-        return render_template('edgeimg.html',filelocation=file.filename )
+        File = request.files['picture'].read()
+        npimg = np.fromstring(File, np.uint8)
+        routeOriginal = "static/userimageload/original.png"
+        routeNew = "static/userimageload/new.png"
+
+        img = cv2.imdecode(npimg,cv2.IMREAD_COLOR)
+        cv2.imwrite(routeOriginal,img)
+
+        img = ImgEffect(img)
+        cv2.imwrite(routeNew,img)
+
+        return jsonify({"locationOld":routeOriginal,"locationNew":routeNew})
+    else:
+        return render_template('program/PyEdges.html')
+
+def ImgEffect(img):
+    factor = 900/img.shape[0]
+    img = cv2.resize(img,(0,0), fx=factor,fy=factor)
+    img = cv2.bilateralFilter(img,9,300,300)
+
+    gray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
+    gray = cv2.medianBlur(gray,7)
+    
+    #
+    # kernel=cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(6,6))
+    edges = cv2.adaptiveThreshold(gray, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C,cv2.THRESH_BINARY,11,5)
+    #edges = cv2.morphologyEx(edges, cv2.MORPH_OPEN, kernel)
+
+    color = ImgPosterized(img)
+    color = Binarized(color,edges)
+    return color
 
 def ImgPosterized(img):
     return 32*np.floor(img/32)
 
 def Binarized(img,mask):
-    img[mask==0]=(img[mask==0]*0.3+255*0.7)
+    img[mask==0]=(img[mask==0]*0.3+0*0.7)
     return img
-
-
-
-
-        
-
-
-
-      
 
 
 if __name__ == '__main__':
