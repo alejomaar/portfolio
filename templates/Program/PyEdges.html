@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <base href="/"> -->
-    <link rel="stylesheet" href="{{ url_for('static',filename='css/program/p5imagefilter.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/program/effectPy.css')}}">
     <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400;500;600;700&display=swap" rel="stylesheet">     
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" rel="stylesheet"> 
     
@@ -26,10 +26,10 @@
                     <div class="boximage" id="BoxInputImg">
                         <span>Arrastra y suelta tu imagen </span>
                         <span>o</span>
-                        <form action="/edgesnew" method="POST" id="form" enctype="multipart/form-data"  >
+                        <form action="/edgesnew" method="POST" id="form" enctype="multipart/form-data" style="display: flex;" >
                             <input name="picture" type="file" id="file" accept="image/*" >
                             <label for="file">Elige un archivo</label>
-                            <input id="auxiliar"type="submit" value="dsfs">
+                            <input id="auxiliar"type="submit" style="display:none">
                         </form>
                     </div>
                     <div class="boximage" id="BoxOutputImg">
@@ -45,17 +45,34 @@
     <script>
     $("form").addEventListener('submit', (e)=>{
         e.preventDefault();
-
+        var formdata = new FormData($("form"))
         fetch('/edgesnew',{
             method: 'POST',
-            body: new FormData($("form"))
-        }).then(res =>res.json())
+            body: formdata
+        }).then(res =>res.blob())
         .then(data =>{
-            //console.log(data.locationOld);
-            NewImgStyle(data.locationOld,data.locationNew);
+            console.log(data);
+            NewImgStyle();
+            RenderInput(formdata);
+
+            let url = URL.createObjectURL(data);
+            var imgnode = document.createElement("img");
+            imgnode.src = url;
+            $('BoxOutputImg').appendChild(imgnode); 
         })
 
-        function NewImgStyle(locationOld,locationNew)
+        function RenderInput(formdata)
+        {
+            var file = formdata.get('picture');
+            var url = URL.createObjectURL(file);
+
+            var imgnode = document.createElement("img");
+            imgnode.src = url;
+            $('BoxInputImg').appendChild(imgnode);
+        }
+
+
+        function NewImgStyle()
         {
             //Get Box container of images 
             var BoxInputOff =$("BoxInputImg");
@@ -66,29 +83,14 @@
             //Set new style when image is active 
             BoxInputOff.classList.add("activeimage");
             BoxOutputOff.classList.add("activeimage");
-
-            //Set image preview into BoxInput
-            var imgnode = document.createElement("img");
-            imgnode.src = locationOld;
-
-            //Set image preview into BoxInput
-            var imgnode2 = document.createElement("img");
-            imgnode2.src = locationNew;
-            
-            BoxInputOff.appendChild(imgnode);
-            BoxOutputOff.appendChild(imgnode2);
             
         }
-
+        
     })    
 
     $("file").onchange = function() {
-        
         $("auxiliar").click();
     };
-
-
-    
     </script>
     
 </body>

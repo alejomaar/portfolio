@@ -28,37 +28,6 @@ def program(name='escalagrises.html'):
 def edges():
     return render_template('edgeimg.html')
 
-GeneralImg=None
-
-@app.route('/edges_image/<string:filename>')
-def edges_image(filename):
-    route = "static/userimageload/"+filename
-    
-    img = cv2.imread(route)
-    factor = 900/img.shape[0]
-    img = cv2.resize(img,(0,0), fx=factor,fy=factor)
-    img = cv2.bilateralFilter(img,9,300,300)
-
-
-    gray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
-    gray = cv2.medianBlur(gray,7)
-    
-    kernel=cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(6,6))
-    edges = cv2.adaptiveThreshold(gray, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C,cv2.THRESH_BINARY,11,5)
-    edges = cv2.morphologyEx(edges, cv2.MORPH_OPEN, kernel)
-
-    color = ImgPosterized(img)
-    color = Binarized(color,edges)
-    #cartoon = cv2.bitwise_and(color,color,mask=edges)
-    
-    success, buffer = cv2.imencode('.png',color)
-    response = make_response(buffer.tobytes())
-    response.headers['Content-Type'] = 'image/png'
-    #return render_template('edgeimg.html' )
-    #return route
-    return response
-
-
 
 @app.route('/edgesnew',methods=['POST','GET'])
 def edgesnewpost():
@@ -66,31 +35,31 @@ def edgesnewpost():
         
         File = request.files['picture'].read()
         npimg = np.fromstring(File, np.uint8)
-        routeOriginal = "static/userimageload/original.png"
-        routeNew = "static/userimageload/new.png"
-
         img = cv2.imdecode(npimg,cv2.IMREAD_COLOR)
-        cv2.imwrite(routeOriginal,img)
 
+        factor = 900/img.shape[0]
+        img = cv2.resize(img,(0,0), fx=factor,fy=factor)
         img = ImgEffect(img)
-        cv2.imwrite(routeNew,img)
 
-        return jsonify({"locationOld":routeOriginal,"locationNew":routeNew})
+        success, buffer = cv2.imencode('.png',img)
+        response = make_response(buffer.tobytes())
+        response.headers['Content-Type'] ='image/png'
+        return response
+
+        #return jsonify({"locationOld":routeOriginal,"locationNew":routeNew})
     else:
         return render_template('program/PyEdges.html')
 
 def ImgEffect(img):
-    factor = 900/img.shape[0]
-    img = cv2.resize(img,(0,0), fx=factor,fy=factor)
+   
     img = cv2.bilateralFilter(img,9,300,300)
 
     gray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
-    gray = cv2.medianBlur(gray,7)
+    gray = cv2.medianBlur(gray,3)
     
-    #
-    # kernel=cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(6,6))
+    kernel=cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(5,5))
     edges = cv2.adaptiveThreshold(gray, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C,cv2.THRESH_BINARY,11,5)
-    #edges = cv2.morphologyEx(edges, cv2.MORPH_OPEN, kernel)
+    edges = cv2.morphologyEx(edges, cv2.MORPH_OPEN, kernel)
 
     color = ImgPosterized(img)
     color = Binarized(color,edges)
