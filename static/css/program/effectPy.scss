@@ -126,7 +126,7 @@ body,html{
         {
             width: 45%;
             max-height: 30rem;
-            //height: 18rem;
+            height: 700px;
             //padding-top: 32%;
             padding: 10rem 0;
             background-color: $Cinder;
@@ -144,7 +144,7 @@ body,html{
                 color: white;
             }
             img{
-               // height: 100%;
+                //height:  fill-available;
                 max-height: 100%;
                 max-width: 100%;
             }

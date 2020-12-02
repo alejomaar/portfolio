@@ -150,7 +150,7 @@ nav a::after {
   content: '';
   display: block;
   width: 0;
-  height: 2px;
+  height: 4px;
   background: #000;
   -webkit-transition: width .3s;
   transition: width .3s;
@@ -246,7 +246,7 @@ body, html {
 }
 
 .application .interactionmenu {
-  width: 30%;
+  width: 24%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -360,6 +360,13 @@ body, html {
         }*/
 }
 
+.application .display h1 {
+  font-size: 1.8rem;
+  margin-top: 2rem;
+  text-align: center;
+  font-weight: 800;
+}
+
 .application .display .sectiondisplay {
   padding: 2.8rem;
   display: -webkit-box;
@@ -372,7 +379,7 @@ body, html {
 }
 
 .application .display .boximage {
-  width: 37%;
+  width: 45%;
   height: 18rem;
   padding: 2.8rem 0;
   background-color: #15151F;

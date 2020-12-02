@@ -150,7 +150,7 @@ nav a::after {
   content: '';
   display: block;
   width: 0;
-  height: 2px;
+  height: 4px;
   background: #000;
   -webkit-transition: width .3s;
   transition: width .3s;
@@ -374,6 +374,7 @@ body, html {
 .application .display .boximage {
   width: 45%;
   max-height: 30rem;
+  height: 700px;
   padding: 10rem 0;
   background-color: #15151F;
   outline: 2px dashed #fff;

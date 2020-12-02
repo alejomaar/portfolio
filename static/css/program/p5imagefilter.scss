@@ -20,7 +20,7 @@ body,html{
     //menu 1 importante
     .interactionmenu
     {
-        width: 30%;
+        width: 24%;
         display: flex;
         flex-direction: column;
         align-items: center;
@@ -113,6 +113,12 @@ body,html{
     {
         width: 100%;
         background-color: $IndianB;
+        h1{
+            font-size: 1.8rem;
+            margin-top: 2rem;
+            text-align: center;
+            font-weight: 800;
+        }
         .sectiondisplay
         {
             padding: $spacey2;
@@ -124,7 +130,7 @@ body,html{
         
         .boximage
         {
-            width: 37%;
+            width: 45%;
             height: 18rem;
             //padding-top: 32%;
             padding: 2.8rem 0;

@@ -52,16 +52,20 @@ def edgesnewpost():
 
 def ImgEffect(img):
    
+    kernel=cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(17,17))
     img = cv2.bilateralFilter(img,9,300,300)
+    img = cv2.morphologyEx(img, cv2.MORPH_OPEN, kernel)
 
     gray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
-    gray = cv2.medianBlur(gray,3)
+    gray = cv2.medianBlur(gray,5)
     
-    kernel=cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(5,5))
-    edges = cv2.adaptiveThreshold(gray, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C,cv2.THRESH_BINARY,11,5)
-    edges = cv2.morphologyEx(edges, cv2.MORPH_OPEN, kernel)
-
-    color = ImgPosterized(img)
+    
+    edges = cv2.adaptiveThreshold(gray, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C,cv2.THRESH_BINARY,25,3)
+    #edges = cv2.morphologyEx(edges, cv2.MORPH_OPEN, kernel)
+    
+    color = img
+    #color = cv2.medianBlur(img,3)
+    #color = ImgPosterized(color)
     color = Binarized(color,edges)
     return color
 
