@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <base href="/"> -->
-    <link rel="stylesheet" href="{{ url_for('static',filename='css/Program/threevista3d.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/Program/p5imagefilter.css')}}">
     <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400;500;600;700&display=swap" rel="stylesheet">     
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" rel="stylesheet"> 
     
@@ -15,15 +15,31 @@
 </head>
 <body>
 
-
-
     <div class="all">
         {% include 'navbar.html' %}
         <div class="application">
-            <!-- Here shows the output of application -->
-            <div class="ThreeContainerAll" id="ThreeContainer">
 
+            <div class="display">
+                
+                <div class="volver">
+                    <a class="boton" href="/app/sepia.html">
+                        <img class="right" src="/static/Image/Home/arrowleft.svg" >
+                        <span>Sepia</span> 
+                     </a>
+                     <a class="boton" href="/app/fractal.html">
+                        <span>Triangulo de Sierpinski</span> 
+                        <img class="left" src="/static/Image/Home/arrowright.svg" >  
+                     </a>
+                    
+                </div>
+                
+                <h1>Galeria 3D</h1>
             </div>
+            <!-- Here shows the output of application -->
+            
+        </div>
+        <div class="ThreeContainer" id="ThreeContainer">
+
         </div>
     </div>
     

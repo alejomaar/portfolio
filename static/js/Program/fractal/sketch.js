@@ -12,13 +12,13 @@ function startSketch(){
     p.setup = function() {
         
       //Dom container
-      var container = $("ContainerSketch");
+      var container = $("ThreeContainer");
       var Width = container.offsetWidth; 
       var Heigth = container.offsetHeight; 
 
       //Canvas
       var Canvas =p.createCanvas(Width, Heigth);
-      Canvas =Canvas.parent("ContainerSketch");
+      Canvas =Canvas.parent("ThreeContainer");
       Canvas.mouseClicked(mouseClic);
       //Background and color
       p.noStroke();
@@ -127,8 +127,8 @@ function startSketch(){
     
 
     p.windowResized = function() {
-      var Width = $("ContainerSketch").offsetWidth;
-      var Heigth = $("ContainerSketch").offsetHeight;
+      var Width = $("ThreeContainer").offsetWidth;
+      var Heigth = $("ThreeContainer").offsetHeight;
 
       p.resizeCanvas(Width, Heigth);
       p.redraw(1);

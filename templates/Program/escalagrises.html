@@ -15,13 +15,12 @@
 </head>
 <body>
 
-
-    {% include 'navbar.html' %}
+    
     <div class="all">
-       
+        {% include 'navbar.html' %}
         <div class="application">
             <div class="interactionmenu" id="interactionmenu">
-                <h2 class="w80">Opciones</h2>
+                <span class="w80 opciones">Opciones</span>
                 {{TemplateSlider('Peso Rojo',0,'100','30')}}
                 {{TemplateSlider('Peso Verde','0',100,'59')}}
                 {{TemplateSlider('Peso Azul','0',100,'11')}}
@@ -42,7 +41,7 @@
                     
                 </div>
                 
-                <h1>Imagen de colores a blanco y negro</h1>
+                <h1>Imagen a blanco y negro</h1>
                 <div class="sectiondisplay" id="sectiondisplay">
                     
                     <div class="boximage" id="BoxInputImg">
@@ -50,11 +49,9 @@
                         <span>o</span>
                         <input type="file" id="file" accept="image/*" onchange="FileSelected (this)">
                         <label for="file">Elige un archivo</label>
-                        <img id="InputImg">
                     </div>
                     <div class="boximage" id="BoxOutputImg">
                         <span id="TextOutputImg">Imagen de salida </span>
-                        <img id="OutputImg">
                     </div>
                 </div> 
                 <div class="boxbuttons">

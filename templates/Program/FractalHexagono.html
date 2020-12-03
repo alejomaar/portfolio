@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- <base href="/"> -->
-    <link rel="stylesheet" href="{{ url_for('static',filename='css/program/fractal.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static',filename='css/program/p5imagefilter.css')}}">
     <link href="https://fonts.googleapis.com/css2?family=Domine:wght@400;500;600;700&display=swap" rel="stylesheet">     
     <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,200;0,300;0,400;0,600;0,700;0,900;1,200;1,300;1,400;1,600;1,700;1,900&display=swap" rel="stylesheet"> 
     
@@ -22,13 +22,26 @@
         <div class="application">
             <!-- Here goes the Buttons,sliders and input of program -->
             <div class="interactionmenu" id="interactionmenu">
-                <h2 class="w80">Subniveles Hexagono de Sierpinsky</h2>
+                <span class="w80 opciones">Subniveles</span>
                 {{TemplateSlider('Iteraciones',1,'6','2')}}
                 
             </div>
             <!-- Here shows the output of application -->
             <div class="display">
-                <div class="ContainerSketch" id="ContainerSketch">
+                <div class="volver">
+                    <a class="boton" href="/app/fractal.html">
+                        <img class="right" src="/static/Image/Home/arrowleft.svg" >
+                        <span>Triangulo de Sierpinsky</span> 
+                     </a>
+                     <a class="boton" href="/app/Fractal3dDodecaedro.html">
+                        <span>Dodecaedro 3d</span> 
+                        <img class="left" src="/static/Image/Home/arrowright.svg" >  
+                     </a>
+                    
+                </div>
+                <h1>Hexagono de Sierpisky</h1>
+
+                <div class="ThreeContainer" id="ContainerSketch">
 
                 </div>  
             </div>

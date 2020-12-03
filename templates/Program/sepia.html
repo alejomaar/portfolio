@@ -14,34 +14,47 @@
     <title>Document</title>
 </head>
 <body>
-
-
-
+    
     <div class="all">
         {% include 'navbar.html' %}
         <div class="application">
             <!-- Here goes the Buttons,sliders and input of program -->
             <div class="interactionmenu" id="interactionmenu">
-                <h2 class="w80">Imagen de colores a blanco y negro</h2>
+                <span class="w80 opciones">Opciones</span>
                 {{TemplateSlider('Peso Rojo',0,'100','0')}}
                 {{TemplateSlider('Peso Verde','0',100,'0')}}
                 {{TemplateSlider('Peso Azul','0',100,'0')}}
             </div>
             <!-- Here shows the output of application -->
             <div class="display">
+                <div class="volver">
+                    <a class="boton" href="/app/escalagrises.html">
+                        <img class="right" src="/static/Image/Home/arrowleft.svg" >
+                        <span>Escala de grises</span> 
+                     </a>
+                     <a class="boton" href="/app/3dmodel_cube.html">
+                        <span>vista 3d</span> 
+                        <img class="left" src="/static/Image/Home/arrowright.svg" >  
+                     </a>
+                    
+                </div>
+                <h1>Imagen a sepia</h1>
                 <div class="sectiondisplay" id="sectiondisplay">
+                    
                     <div class="boximage" id="BoxInputImg">
                         <span>Arrastra y suelta tu imagen </span>
                         <span>o</span>
                         <input type="file" id="file" accept="image/*" onchange="FileSelected (this)">
                         <label for="file">Elige un archivo</label>
-                        <img id="InputImg">
                     </div>
                     <div class="boximage" id="BoxOutputImg">
                         <span id="TextOutputImg">Imagen de salida </span>
-                        <img id="OutputImg">
                     </div>
                 </div> 
+                <div class="boxbuttons">
+                    <button class="boton" onClick="window.location.reload(true)">  Nueva Imagen</button>
+                    <button class="boton">Descargar</button>
+                </div>
             </div>
         </div>
     </div>

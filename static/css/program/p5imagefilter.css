@@ -111,7 +111,6 @@ header {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  padding-left: 2.8rem;
   position: relative;
   /*a{
         width: min-content;
@@ -281,10 +280,10 @@ body, html {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
+  -webkit-box-orient: vertical;
   -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
+      -ms-flex-direction: column;
+          flex-direction: column;
   height: 100%;
 }
 
@@ -309,11 +308,14 @@ body, html {
   color: white;
 }
 
-.interactionmenu h2 {
+.interactionmenu .opciones {
+  font-size: 2.2rem;
+  font-family: "Domine", "serif";
   text-align: center;
   font-weight: bold;
   margin-bottom: 2rem;
   background-color: #15151F;
+  text-align: center;
 }
 
 .interactionmenu > div {
@@ -411,19 +413,21 @@ body, html {
 }
 
 .application .display {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   width: 100%;
   background-color: #F8E6D0;
   padding: 0rem 4rem;
-  /*canvas{
-            width: 100%;
-            height: 100%;
-        }*/
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 
 .application .display .volver {
   width: 100%;
   margin-top: 3rem;
-  margin-bottom: 2rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -455,7 +459,7 @@ body, html {
 }
 
 .application .display > h1 {
-  font-family: "Source Sans Pro", "sans-serif";
+  font-family: "Domine", "serif";
   font-size: 2.2rem;
   font-weight: 500;
   width: 100%;
@@ -551,9 +555,14 @@ body, html {
           justify-content: center;
 }
 
-.application .display .ThreeContainerAll {
+.ThreeContainer {
   width: 100%;
   height: 100%;
-  background-color: #15151F;
+  max-width: 100%;
+  max-height: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: #F8E6D0;
 }
 /*# sourceMappingURL=p5imagefilter.css.map */
