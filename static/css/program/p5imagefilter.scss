@@ -7,9 +7,102 @@ body,html{
 .all
 {
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     height: 100%;
 }
+
+.interactionmenu
+{
+    width: 20%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    // resize: horizontal;
+    //overflow: auto;
+    background-color: $Cinder;
+    padding-top: 3rem;
+    h2,span{
+        color: white;
+    }
+    h2{
+        text-align: center;
+        font-weight: bold;
+        margin-bottom: 2rem;
+        background-color: #15151F   ;
+    }
+
+    >div
+    {
+        margin: 0 auto;
+        display: flex;
+        width: 60%;
+        text-align: center;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+    }
+    .slider
+    {
+        margin-top: 1.5rem;
+        width: 100%;
+        -webkit-appearance: none;
+        &:focus {
+            outline: none;
+        }
+        &::-webkit-slider-runnable-track {
+            width: 100%;
+            height: 0.5rem;
+            cursor: pointer;
+            box-shadow: none;
+            background: #ffffff;
+            border-radius: 0px;
+            border: 0px solid #010101;
+        }
+        &::-moz-range-track {
+            width: 100%;
+            height: 0.5rem;
+            cursor: pointer;
+            box-shadow: none;
+            background: #ffffff;
+            border-radius: 0px;
+            border: 0px solid #010101;
+        }
+        $Widthpointer:1rem;
+        $Heightpointer:1.5rem;
+        &::-webkit-slider-thumb {
+            box-shadow: none;
+            border: 0px solid #ffffff;
+            box-shadow: 0px 10px 10px rgba(0,0,0,0.25);
+            height: $Heightpointer;
+            width: $Widthpointer;
+            //border-radius: 22px;
+            background: rgba(255,255,255,1);
+            cursor: pointer;
+            -webkit-appearance: none;
+            margin-top: -0.5rem;
+        }
+        &::-moz-range-thumb{
+            box-shadow: none;
+            border: 0px solid #ffffff;
+            box-shadow: 0px 10px 10px rgba(0,0,0,0.25);
+            height: $Heightpointer;
+            width: $Widthpointer;
+            // border-radius: 22px;
+            background: rgba(255,255,255,1);
+            cursor: pointer;
+            -webkit-appearance: none;
+            margin-top: -0.5rem;
+        }
+        &::-moz-focus-outer {
+        border: 0;
+        }
+
+    }
+
+}
+
 
 .application
 {
@@ -18,120 +111,57 @@ body,html{
     width: 100%;
     flex-direction: row;
     //menu 1 importante
-    .interactionmenu
-    {
-        width: 24%;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-
-       // resize: horizontal;
-        //overflow: auto;
-        background-color: $Cinder;
-        padding-top: 3rem;
-        h2,span{
-            color: white;
-        }
-        h2{
-            text-align: center;
-            font-weight: bold;
-            margin-bottom: 2rem;
-        }
-
-        >div
-        {
-            margin: 0 auto;
-            display: flex;
-            width: 60%;
-            text-align: center;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-        }
-        .slider
-        {
-            margin-top: 1.5rem;
-            width: 100%;
-            -webkit-appearance: none;
-            &:focus {
-                outline: none;
-            }
-            &::-webkit-slider-runnable-track {
-                width: 100%;
-                height: 0.5rem;
-                cursor: pointer;
-                box-shadow: none;
-                background: #ffffff;
-                border-radius: 0px;
-                border: 0px solid #010101;
-            }
-            &::-moz-range-track {
-                width: 100%;
-                height: 0.5rem;
-                cursor: pointer;
-                box-shadow: none;
-                background: #ffffff;
-                border-radius: 0px;
-                border: 0px solid #010101;
-            }
-            $Widthpointer:1rem;
-            $Heightpointer:1.5rem;
-            &::-webkit-slider-thumb {
-                box-shadow: none;
-                border: 0px solid #ffffff;
-                box-shadow: 0px 10px 10px rgba(0,0,0,0.25);
-                height: $Heightpointer;
-                width: $Widthpointer;
-                //border-radius: 22px;
-                background: rgba(255,255,255,1);
-                cursor: pointer;
-                -webkit-appearance: none;
-                margin-top: -0.5rem;
-            }
-          &::-moz-range-thumb{
-                box-shadow: none;
-                border: 0px solid #ffffff;
-                box-shadow: 0px 10px 10px rgba(0,0,0,0.25);
-                height: $Heightpointer;
-                width: $Widthpointer;
-               // border-radius: 22px;
-                background: rgba(255,255,255,1);
-                cursor: pointer;
-                -webkit-appearance: none;
-                margin-top: -0.5rem;
-          }
-          &::-moz-focus-outer {
-            border: 0;
-            }
-
-        }
-
-
-    }
     // Menu 2 importante
     .display
     {
         width: 100%;
-        background-color: $IndianB;
-        h1{
-            font-size: 1.8rem;
-            margin-top: 2rem;
-            text-align: center;
-            font-weight: 800;
+        background-color: $IndianW;
+        padding: 0rem 4rem;
+
+        .volver{
+            width: 100%;
+            margin-top: 3rem;
+            margin-bottom: 2rem;
+            display: flex;
+            justify-content: space-between;
+            a{
+                display: flex;
+                padding: 1rem 1.5rem;
+                align-items: center;
+                img{
+                    height: 1rem;
+                    
+                }
+                .left{
+                    padding-left: 1rem;
+
+                }.right{
+                    padding-right: 1rem;
+                }
+            }
         }
+        
+        >h1{
+            font-family: $Sans;
+            font-size: 2.2rem;
+            font-weight: 500;
+            width: 100%;  
+            margin-bottom:1rem; 
+            text-align: center;      
+        }
+        
         .sectiondisplay
         {
-            padding: $spacey2;
             display: flex;
             width: 100%;
-            justify-content: space-evenly;
+            justify-content: space-between;
         }
         
         
         .boximage
         {
-            width: 45%;
-            height: 18rem;
+            width: 46%;
+            height: 22rem;
             //padding-top: 32%;
             padding: 2.8rem 0;
             background-color: $Cinder;
@@ -181,6 +211,13 @@ body,html{
             outline: none;
         }
 
+        .boxbuttons{
+            margin: 3rem 0;
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
         
 
         .ThreeContainerAll {

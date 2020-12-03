@@ -76,35 +76,7 @@
         width: 60%;
         justify-content: center;
         margin: $spacey1 0;
-
-        button{
-            
-            padding: 0.8rem 1.8rem;
-            font-size: 1rem;
-            
-            border-radius: 4.5rem;
-            background-color: $IndianB;
-            position: relative;
-            margin: 0rem 1rem;
-            
-           // font-size: 0;
-        }
-        
-
-        button:hover, button:active, .activebutton
-        {
-           background-color: $Cinder;
-           color: white;
-           box-shadow:
-            0 2.8px 2.2px rgba(0, 0, 0, 0.034),
-            0 6.7px 5.3px rgba(0, 0, 0, 0.048),
-            0 12.5px 10px rgba(0, 0, 0, 0.06),
-            0 10px 80px rgba(0, 0, 0, 0.12) ;
-        }
-        
-        
-        
-        
+     
     }
 }
 

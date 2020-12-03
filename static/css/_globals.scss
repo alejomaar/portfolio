@@ -19,8 +19,15 @@ html{
 
 
 h1,h2{
-    font-size: 1rem;
     font-family: $Serif;
+}
+
+h1{
+    font-size: 5rem;
+}
+
+h2{
+    font-size: 1.5rem;
 }
 
 p,a,span,button,label{
@@ -46,18 +53,35 @@ button:focus {outline:0;}
 
 header{
     background-color: $IndianB;
-    height: 3rem;
+    height: 4rem;
     display: flex;
     align-items: center ;
+    justify-content: center;
     padding-left: $spacex2;
+    position: relative;
     img{
         height: 80%;
     }
+    /*a{
+        width: min-content;
+    }*/
+    a:nth-child(2){
+        margin: 0 1rem;
+        h1{
+            font-size: 3rem;
+        }
+    }
+    a:nth-child(4){
+        position: absolute;
+        right: 0;
+        margin-right: 6rem;
+    }
+    /*
     a{  
         margin-left: $spacex1;
         font-weight: bold;
         font-size: 1.5rem;
-    }
+    }*/
 }
 
 nav{
@@ -67,25 +91,14 @@ nav{
     padding: 0 $spacex2;
     //justify-content: space-between;
     align-items: center;
-    a{
-        position: relative;
-    }
+    
     a:nth-child(-n+2){
        // background-color: red;
         width: min-content;
         margin-right: $spacex1;
     }
-    a:nth-child(3){
-        margin-left: auto;
-       // background-color: blue;
-        justify-self: flex-end;
-    }
-    a:hover{
-        font-weight: 600;
-        
-    }
-    a::after{
-        //position: absolute;
+    
+    /*a::after{
         content: '';
         display: block;
         width: 0;
@@ -105,23 +118,80 @@ nav{
         height: 0;
         overflow: hidden;
         visibility: hidden;
-    }
+    }*/
+    
+    
+    
 }
 //Specific tags
+
+
+//Line Effect
+
+a.line::after{
+    //position: absolute;
+    content: '';
+    display: block;
+    width: 0;
+    height: 4px;
+    background: #000;
+    transition: width .3s;
+}
+a.line:hover::after{
+    width: 100%;
+    max-width: 100%;      
+}
+
+a.line::before
+{
+    display: block;
+    content: attr(title);
+    font-weight: 600;
+    height: 0;
+    overflow: hidden;
+    visibility: hidden;
+}
+
+//Button styles
+.boton{
+    padding: 0.8rem 1.8rem;
+    font-size: 1rem;
+    border-radius: 4.5rem;
+    background-color: #EAD0B4;
+    position: relative;
+    margin: 0rem 1rem;
+    cursor: pointer;
+}
+.boton:hover, .boton:active, .activebutton
+{
+    background-color: $Cinder;
+    color: white;
+    box-shadow:
+    0 2.8px 2.2px rgba(0, 0, 0, 0.034),
+    0 6.7px 5.3px rgba(0, 0, 0, 0.048),
+    0 12.5px 10px rgba(0, 0, 0, 0.06),
+    0 10px 80px rgba(0, 0, 0, 0.12) ;
+    a{
+        color: white;
+    }
+}
+
+
+
+
 
 p.big{
     font-size: 2rem;
 }
-h1{
-    font-size: 5rem;
-}
 
-
-h2{
-    font-size: 1.5rem;
-}
 .w100
 {
+    width: 100%;
+}
+
+.w100-f
+{
+    display: flex;
     width: 100%;
 }
 
@@ -129,7 +199,6 @@ h2{
 {
     width: 80%;
 }
-
 
 .Xflexbetween{
     display: flex;

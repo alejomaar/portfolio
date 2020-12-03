@@ -69,8 +69,15 @@ html {
 }
 
 h1, h2 {
-  font-size: 1rem;
   font-family: "Domine", "serif";
+}
+
+h1 {
+  font-size: 5rem;
+}
+
+h2 {
+  font-size: 1.5rem;
 }
 
 p, a, span, button, label {
@@ -94,24 +101,45 @@ button:focus {
 
 header {
   background-color: #EAD0B4;
-  height: 3rem;
+  height: 4rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   padding-left: 2.8rem;
+  position: relative;
+  /*a{
+        width: min-content;
+    }*/
+  /*
+    a{  
+        margin-left: $spacex1;
+        font-weight: bold;
+        font-size: 1.5rem;
+    }*/
 }
 
 header img {
   height: 80%;
 }
 
-header a {
-  margin-left: 1.1rem;
-  font-weight: bold;
-  font-size: 1.5rem;
+header a:nth-child(2) {
+  margin: 0 1rem;
+}
+
+header a:nth-child(2) h1 {
+  font-size: 3rem;
+}
+
+header a:nth-child(4) {
+  position: absolute;
+  right: 0;
+  margin-right: 6rem;
 }
 
 nav {
@@ -124,10 +152,27 @@ nav {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
-}
-
-nav a {
-  position: relative;
+  /*a::after{
+        content: '';
+        display: block;
+        width: 0;
+        height: 4px;
+        background: #000;
+        transition: width .3s;
+    }
+    a:hover::after{
+        width: 100%;      
+    }
+    
+    a::before
+    {
+        display: block;
+        content: attr(title);
+        font-weight: 600;
+        height: 0;
+        overflow: hidden;
+        visibility: hidden;
+    }*/
 }
 
 nav a:nth-child(-n+2) {
@@ -137,16 +182,7 @@ nav a:nth-child(-n+2) {
   margin-right: 1.1rem;
 }
 
-nav a:nth-child(3) {
-  margin-left: auto;
-  justify-self: flex-end;
-}
-
-nav a:hover {
-  font-weight: 600;
-}
-
-nav a::after {
+a.line::after {
   content: '';
   display: block;
   width: 0;
@@ -156,11 +192,12 @@ nav a::after {
   transition: width .3s;
 }
 
-nav a:hover::after {
+a.line:hover::after {
   width: 100%;
+  max-width: 100%;
 }
 
-nav a::before {
+a.line::before {
   display: block;
   content: attr(title);
   font-weight: 600;
@@ -169,19 +206,39 @@ nav a::before {
   visibility: hidden;
 }
 
+.boton {
+  padding: 0.8rem 1.8rem;
+  font-size: 1rem;
+  border-radius: 4.5rem;
+  background-color: #EAD0B4;
+  position: relative;
+  margin: 0rem 1rem;
+  cursor: pointer;
+}
+
+.boton:hover, .boton:active, .activebutton {
+  background-color: #15151F;
+  color: white;
+  -webkit-box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06), 0 10px 80px rgba(0, 0, 0, 0.12);
+          box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06), 0 10px 80px rgba(0, 0, 0, 0.12);
+}
+
+.boton:hover a, .boton:active a, .activebutton a {
+  color: white;
+}
+
 p.big {
   font-size: 2rem;
 }
 
-h1 {
-  font-size: 5rem;
-}
-
-h2 {
-  font-size: 1.5rem;
-}
-
 .w100 {
+  width: 100%;
+}
+
+.w100-f {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
   width: 100%;
 }
 
@@ -299,22 +356,6 @@ h2 {
       -ms-flex-pack: center;
           justify-content: center;
   margin: 1.1rem 0;
-}
-
-.contenido .boxbuttons button {
-  padding: 0.8rem 1.8rem;
-  font-size: 1rem;
-  border-radius: 4.5rem;
-  background-color: #EAD0B4;
-  position: relative;
-  margin: 0rem 1rem;
-}
-
-.contenido .boxbuttons button:hover, .contenido .boxbuttons button:active, .contenido .boxbuttons .activebutton {
-  background-color: #15151F;
-  color: white;
-  -webkit-box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06), 0 10px 80px rgba(0, 0, 0, 0.12);
-          box-shadow: 0 2.8px 2.2px rgba(0, 0, 0, 0.034), 0 6.7px 5.3px rgba(0, 0, 0, 0.048), 0 12.5px 10px rgba(0, 0, 0, 0.06), 0 10px 80px rgba(0, 0, 0, 0.12);
 }
 
 .porfolio {

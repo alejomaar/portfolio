@@ -16,19 +16,32 @@
 <body>
 
 
-
+    {% include 'navbar.html' %}
     <div class="all">
-        {% include 'navbar.html' %}
+       
         <div class="application">
-            <!-- Here goes the Buttons,sliders and input of program -->
             <div class="interactionmenu" id="interactionmenu">
                 <h2 class="w80">Opciones</h2>
                 {{TemplateSlider('Peso Rojo',0,'100','30')}}
                 {{TemplateSlider('Peso Verde','0',100,'59')}}
                 {{TemplateSlider('Peso Azul','0',100,'11')}}
             </div>
+            <!-- Here goes the Buttons,sliders and input of program -->
             <!-- Here shows the output of application -->
             <div class="display">
+                
+                <div class="volver">
+                    <a class="boton" href="/">
+                        <img class="right" src="/static/Image/Home/arrowleft.svg" >
+                        <span>Volver</span> 
+                     </a>
+                     <a class="boton" href="/app/sepia.html">
+                        <span>Sepia</span> 
+                        <img class="left" src="/static/Image/Home/arrowright.svg" >  
+                     </a>
+                    
+                </div>
+                
                 <h1>Imagen de colores a blanco y negro</h1>
                 <div class="sectiondisplay" id="sectiondisplay">
                     
@@ -44,6 +57,10 @@
                         <img id="OutputImg">
                     </div>
                 </div> 
+                <div class="boxbuttons">
+                    <button class="boton" onClick="window.location.reload(true)">  Nueva Imagen</button>
+                    <button class="boton">Descargar</button>
+                </div>
             </div>
         </div>
     </div>
