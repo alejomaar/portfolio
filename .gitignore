@@ -1,6 +1,1 @@
-/static/Image
-*.mov
-*.jfif
-/static/**/*.blend
-/static/**/*.glb
 .vscode
