@@ -29,25 +29,24 @@
         <p class="big">¿Por donde empiezo?</p>
         <p>Busca temas que te interesen a continuación</p>
         <div class="boxbuttons">
-            <button class="boton activebutton" id ="FilterNone"> <span>Todos</span>    </button>
-            <button class="boton" id="FilterProgramacion" > <span>Programacion</span></button>
-            <button class="boton" id="FilterArte"> <span>Arte</span></button>
+            <button class="boton activebutton" onclick="buttonmenu(this)"> <span>Todos</span>    </button>
+            <button class="boton" onclick="buttonmenu(this)"> <span>Programacion</span></button>
+            <button class="boton" onclick="buttonmenu(this)"> <span>Arte</span></button>
         </div>  
     </div>
 
     <div class="porfolio" >
-        {{card('Blanco y negro','Convierte imagenes a color a blanco y negro','Arte','ic1.svg','escalagrises.html')}}
-        {{card('Sepia','Convierte dinamicamente tus imagenes a sepia','Arte','ic2.svg','sepia.html')}}
-        {{card('Vista 3d','Disfruta de modelos 3d','Arte','ic3.png','3dmodel_cube.html')}}
-        {{card('Galeria','Disfruta una galeria de imagenes hechas con diferentes tecnicas','Arte','ic4.svg','imagenyvideo.html')}}
-        {{card('Triangulo de Sierpinsky','Crea tu propio triangulo de Sierpinsky','Programacion','ic5.svg','fractal.html')}}
-        {{card('Hexagono de Sierpinsky','Crea tu propio hexagono de Sierpinsky','Programacion','ic6.svg','FractalHexagono.html')}}
-        {{card('Dodecaedro de Sierpinsky','Crea tu propio Dodecaedro de Sierpinsky','Programacion','ic7.svg','Fractal3dDodecaedro.html')}}
-        {{card('Efecto Cartoon','Convierte una imagen a cartoon','Arte','ic9.svg','PyEdges.html')}}
+        {{card('Blanco y negro','Convierte imagenes a color a blanco y negro','ic1.svg','escalagrises.html')}}
+        {{card('Sepia','Convierte dinamicamente tus imagenes a sepia','ic2.svg','sepia.html')}}
+        {{card('Vista 3d','Disfruta de modelos 3d','ic3.png','3dmodel_cube.html')}}
+        {{card('Galeria','Disfruta una galeria de imagenes hechas con diferentes tecnicas','ic4.svg','imagenyvideo.html')}}
+        {{card('Triangulo de Sierpinsky','Crea tu propio triangulo de Sierpinsky','ic5.svg','fractal.html')}}
+        {{card('Hexagono de Sierpinsky','Crea tu propio hexagono de Sierpinsky','ic6.svg','FractalHexagono.html')}}
+        {{card('Dodecaedro de Sierpinsky','Crea tu propio Dodecaedro de Sierpinsky','ic7.svg','Fractal3dDodecaedro.html')}}
+        {{card('Efecto Cartoon','Convierte una imagen a cartoon','ic9.svg','PyEdges.html')}}
     </div>
 
-    {% include 'footer.html' %}
-
+    
     <script src ="/static/js/Home/button.js"></script>
     
     

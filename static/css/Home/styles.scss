@@ -4,15 +4,14 @@
 {
     display: flex;
     width: 100%;
-    margin-top: 3rem;
     //justify-content: space-around;
 
     .blockscience,.blockart
     {
         width: 50%;
         height: 100%;
-        padding-top: 5rem;
-        padding-bottom: 5rem;
+        padding-top: 3rem;
+        padding-bottom: 3rem;
         
         
     }
@@ -43,7 +42,7 @@
     .blockart{
         background-color: $Cinder;
         h1{
-            @include Bannertitle($IndianB)
+            @include Bannertitle($IndianW)
         }
         h2{
             @include Bannersubtitle(white)
@@ -89,7 +88,6 @@
     flex-wrap: wrap;
     margin: 0 auto;
     justify-content: center;
-    margin-bottom: 2rem;
     .program
     {
         height: 22rem;
@@ -161,4 +159,56 @@
   
 }
 
+footer{
+    display: flex;
+    width: 100%;
+    padding: 5rem;
+    margin-top: 5rem;
+    background-color: $Cinder;
+    flex-direction: row;
 
+    .icons,.data span {
+        margin-top: 2rem;
+    }
+    .social{
+        display: flex;
+        flex-direction: column;
+        width: 40%;
+        img{
+            height: 2.5rem;
+        }
+        img:hover{
+            opacity: 0;
+        }
+        .icons{
+            display: flex;
+        }
+        .icon{
+            position: relative;
+        }
+        .float{
+            position: absolute;
+        }
+    }
+    .data{
+        
+        display: flex;
+        flex-direction: column;
+        width: 60%;
+    }
+    a{
+        color: $IndianW ;
+        font-weight: bold;
+        margin-right: 2rem;
+    }
+
+    
+    span{
+        color: $IndianW ;
+        font-weight: lighter;
+        //margin: 0.3rem 0 ;
+    }
+    .tenue{
+        color: rgba(248,230,208,0.5);
+    }
+}

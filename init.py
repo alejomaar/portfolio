@@ -1,15 +1,17 @@
 from flask import Flask, render_template, request,make_response,jsonify
-#from PIL import Image
+import  PIL
+from PIL import Image
 import numpy as np
 import cv2
-#import os
-#from io import BytesIO
+import os
+import math
+from io import BytesIO
 
 #from edge import edges
 
 
 app =Flask(__name__)
-#app.config['UPLOAD_FOLDER']= os.path.join('static','userimageload')
+app.config['UPLOAD_FOLDER']= os.path.join('static','userimageload')
 ALLOWED_EXTENSIONS = set(['txt', 'pdf', 'png', 'jpg', 'jpeg', 'gif'])
 
 @app.route('/')
@@ -50,7 +52,9 @@ def edgesnewpost():
 
 def ImgEffect(img):
    
-    
+    kernel=cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(17,17))
+    img = cv2.bilateralFilter(img,9,300,300)
+    img = cv2.morphologyEx(img, cv2.MORPH_OPEN, kernel)
 
     gray = cv2.cvtColor(img,cv2.COLOR_BGR2GRAY)
     gray = cv2.medianBlur(gray,5)
@@ -59,12 +63,9 @@ def ImgEffect(img):
     edges = cv2.adaptiveThreshold(gray, 255, cv2.ADAPTIVE_THRESH_GAUSSIAN_C,cv2.THRESH_BINARY,25,3)
     #edges = cv2.morphologyEx(edges, cv2.MORPH_OPEN, kernel)
     
-    kernel=cv2.getStructuringElement(cv2.MORPH_ELLIPSE,(17,17))
-    img = cv2.bilateralFilter(img,9,300,300)
-    img = cv2.morphologyEx(img, cv2.MORPH_OPEN, kernel)
-    #color = img
-    color = cv2.medianBlur(img,3)
-    color = ImgPosterized(color)
+    color = img
+    #color = cv2.medianBlur(img,3)
+    #color = ImgPosterized(color)
     color = Binarized(color,edges)
     return color
 

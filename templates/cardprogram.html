@@ -1,5 +1,5 @@
-{% macro card(Title,Description,type,imgsrc,href)  %}
-    <div class="program" name="{{type}}">
+{% macro card(Title,Description,imgsrc,href)  %}
+    <div class="program">
         <a href="{{ url_for('program', name=href)}}">
             <div class="imagebox">
                 <img src="/static/Image/Home/{{ imgsrc }}">
