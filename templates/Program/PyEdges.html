@@ -49,9 +49,15 @@
                         <span id="TextOutputImg">Imagen de salida </span>
                     </div>
                 </div> 
+                <div class="boxbuttons">
+                    <button class="boton" onClick="window.location.reload(true)">  Nueva Imagen</button>
+                    <button class="boton">Descargar</button>
+                </div>
             </div>
+            
         </div>
     </div>
+    {% include 'footer.html' %}
     
 
     <script src="{{ url_for('static',filename='js/general.js')}}"></script>
