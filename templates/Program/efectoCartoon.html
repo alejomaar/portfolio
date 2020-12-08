@@ -17,19 +17,17 @@
 <body>
 
 
-
     <div class="all">
         {% include 'navbar.html' %}
-        <div class="application">
-            
+        <div class="application">  
             <!-- Here shows the output of application -->
             <div class="display">
                 <div class="volver">
-                    <a class="boton" href="/app/Fractal3dDodecaedro.html">
+                    <a class="boton" href="/app/dodecaedroSierpinsky">
                         <img class="right" src="/static/Image/Home/arrowleft.svg" >
                         <span>Dodecaedro 3d</span> 
                      </a>
-                     <a class="boton" href="/app/escalagrises.html">
+                     <a class="boton" href="/app/blancoynegro">
                         <span>Escala grises</span> 
                         <img class="left" src="/static/Image/Home/arrowright.svg" >  
                      </a>                    
@@ -65,7 +63,7 @@
     $("form").addEventListener('submit', (e)=>{
         e.preventDefault();
         var formdata = new FormData($("form"))
-        fetch('/edgesnew',{
+        fetch('/edges',{
             method: 'POST',
             body: formdata
         }).then(res =>res.blob())
