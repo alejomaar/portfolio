@@ -1,8 +1,10 @@
 /static/Image
-*.mov
-*.jfif
+**.mov
+**.jfif
 /static/**/*.blend
 /static/**/*.glb
+**/*.map
 .vscode
-nuevo/
-virtual/
+/virtual
+**.css
+**.map
